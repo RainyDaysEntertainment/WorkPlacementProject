@@ -6,7 +6,7 @@ public class PlayerMovementScript : MonoBehaviour
 {
     GameObject player;
     Rigidbody rb;
-    float speed = 10;
+    float speed = 8;
     //public LeanTweenType jumpType;
     public bool onGround, canMove;
     Vector3 moveDirection;
@@ -19,22 +19,21 @@ public class PlayerMovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
+
         if (canMove)
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-
-            Vector3 movement = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
-
             rb.MovePosition(transform.position + movement);
         }
+
+        transform.rotation = Quaternion.LookRotation(movement);
     }
 
     private void Update()
     {
-        Quaternion tr = Quaternion.LookRotation(transform.forward);
-        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, Time.deltaTime * 1000);
-        transform.rotation = targetRotation;
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
@@ -45,10 +44,9 @@ public class PlayerMovementScript : MonoBehaviour
 
         RaycastHit hit;
 
-        if (/*Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1.1f) ||*/ 
-            Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) + transform.TransformDirection(Vector3.forward), out hit, 1.8f) &&
-            Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) + transform.TransformDirection(Vector3.right), out hit, 1.8f) &&
-            Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) + transform.TransformDirection(Vector3.left), out hit, 1.8f))
+        if (Physics.Raycast(transform.position + (transform.TransformDirection(Vector3.forward) / 2), transform.TransformDirection(Vector3.down)/* + (transform.TransformDirection(Vector3.forward) / 2)*/, out hit, 1.7f))/* &&*/
+            //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) + transform.TransformDirection(Vector3.right), out hit, 2.2f) &&
+            //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down) + transform.TransformDirection(Vector3.left), out hit, 2.2f))
         {
             onGround = true;
         }
@@ -68,6 +66,6 @@ public class PlayerMovementScript : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-        Debug.DrawRay(transform.position, (transform.TransformDirection(Vector3.down) + transform.TransformDirection(Vector3.forward)) * 1.8f, Color.yellow);
+        Debug.DrawRay(transform.position + (transform.TransformDirection(Vector3.forward) / 2), (transform.TransformDirection(Vector3.down)/* + transform.TransformDirection(Vector3.forward) / 2*/) * 1.7f, Color.yellow);
     }
 }
