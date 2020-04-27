@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/PaulinasWork/Scenes/cave1P.unity
+- path: Assets/PaulinasWork/Scenes/MainMenu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
