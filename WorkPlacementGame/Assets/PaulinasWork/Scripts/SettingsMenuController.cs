@@ -47,32 +47,33 @@ public class SettingsMenuController : MonoBehaviour
         {
             Screen.SetResolution(1280, 720, false);
         }
-        if (res.text.ToString() == "1024x768")
+        if (res.text.ToString() == "2560x1440")
         {
-            Screen.SetResolution(1024, 720, false);
+            Screen.SetResolution(2560, 1440, false);
         }
-        if (res.text.ToString() == "800x600")
+        if (res.text.ToString() == "3840x2160")
         {
-            Screen.SetResolution(800, 600, false);
+            Screen.SetResolution(3840, 2160, false);
         }
     }
 
     public void Quality(Text quality)
     {
-        if(quality.text.ToString()=="High")
+        if (quality.text.ToString() == "Very High")
+        {
+            QualitySettings.SetQualityLevel(5, true);
+        }
+        if (quality.text.ToString()=="High")
         {
             QualitySettings.SetQualityLevel(4,true);
-            Debug.Log("quality changed to high");
         }
         if (quality.text.ToString() == "Medium")
         {
             QualitySettings.SetQualityLevel(3, true);
-            Debug.Log("quality changed to medium");
         }
         if (quality.text.ToString() == "Low")
         {
             QualitySettings.SetQualityLevel(2, true);
-            Debug.Log("quality changed to low");
         }
     }
 
@@ -93,13 +94,21 @@ public class SettingsMenuController : MonoBehaviour
         {
             Application.targetFrameRate = 30;
         }
-        if (fr.text.ToString() == "60")
+        if (fr.text.ToString() == "75")
         {
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = 75;
         }
-        if (fr.text.ToString() == "Unlimited")
+        if (fr.text.ToString() == "90")
         {
-            Application.targetFrameRate = 300;
+            Application.targetFrameRate = 90;
+        }
+        if (fr.text.ToString() == "120")
+        {
+            Application.targetFrameRate = 120;
+        }
+        if (fr.text.ToString() == "240")
+        {
+            Application.targetFrameRate = 240;
         }
     }
 }

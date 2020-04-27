@@ -1609,7 +1609,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: High
+  m_Text: Very High
 --- !u!222 &676916797
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3139,13 +3139,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: 1920x1080
+      m_Image: {fileID: 0}
     - m_Text: 640x480
       m_Image: {fileID: 0}
     - m_Text: 1280x720
       m_Image: {fileID: 0}
-    - m_Text: 1024x768
+    - m_Text: 2560x1440
       m_Image: {fileID: 0}
-    - m_Text: 800x600
+    - m_Text: 3840x2160
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4346,6 +4348,8 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: Very High
+      m_Image: {fileID: 0}
     - m_Text: High
       m_Image: {fileID: 0}
     - m_Text: Medium
@@ -5514,9 +5518,13 @@ MonoBehaviour:
     m_Options:
     - m_Text: 30
       m_Image: {fileID: 0}
-    - m_Text: 60
+    - m_Text: 75
       m_Image: {fileID: 0}
-    - m_Text: Unlimited
+    - m_Text: 90
+      m_Image: {fileID: 0}
+    - m_Text: 120
+      m_Image: {fileID: 0}
+    - m_Text: 240
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6170,7 +6178,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 640x480
+  m_Text: 1920x1080
 --- !u!222 &1942033758
 CanvasRenderer:
   m_ObjectHideFlags: 0
