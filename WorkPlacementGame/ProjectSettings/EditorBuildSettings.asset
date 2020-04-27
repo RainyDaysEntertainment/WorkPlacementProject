@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/PaulinasWork/Scenes/MainMenu.unity
+    guid: c3f92534499b8634bb1e898a4d693867
+  - enabled: 1
+    path: Assets/MainScene/MainScene.unity
+    guid: 2c319cdcde4af924d842c0b64269acb0
   m_configObjects: {}
