@@ -7,7 +7,6 @@ public class PlayerMovementScript : MonoBehaviour
     GameObject player;
     Rigidbody rb;
     float speed = 6;
-    //public LeanTweenType jumpType;
     public bool onGround;
     Vector3 moveDirection;
 
@@ -45,9 +44,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            rb.AddForce((Vector3.up * 10000) + (transform.TransformDirection(Vector3.forward) * 2000));
-            //LeanTween.moveY(gameObject, gameObject.transform.position.y + 3f, 0.3f).setEase(jumpType).setLoopPingPong(1);
-            //LeanTween.moveY(gameObject, gameObject.transform.position.y, 0.3f).setDelay(0.3f).setEase(jumpType);
+            rb.AddForce((Vector3.up * 6000) + (transform.TransformDirection(Vector3.forward) * 1000));
         }
 
         RaycastHit hit;
@@ -66,14 +63,6 @@ public class PlayerMovementScript : MonoBehaviour
             //transform.position = new Vector3(transform.position.x, distanceToGround/* + transform.GetComponent<Collider>().bounds.extents.y*/, transform.position.z);
 
             onGround = false;
-        }
-
-        if (onGround)
-        {
-            //gameObject.transform.position = new Vector3(gameObject.transform.position.x, hit.transform.position.y + gameObject.transform.position.y, gameObject.transform.position.z);
-        }
-        else
-        {
         }
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1.1f, Color.yellow);
