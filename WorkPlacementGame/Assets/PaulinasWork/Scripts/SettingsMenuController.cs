@@ -7,10 +7,17 @@ public class SettingsMenuController : MonoBehaviour
 {
     public GameObject settingsMenu;
     public GameObject mainMenu;
-    Toggle fullscreenToggle;
-    Dropdown resolutionDropdown;
-    Slider brightnessSlider;
+
+    public Button applyChangesBtn;
+
+    public Toggle fullscreenToggle;
+    public Dropdown resolutionDropdown;
+    public Dropdown qualityDropdown;
+    public Dropdown frameRateDropdown;
+    public Slider brightnessSlider;
+    public Slider audioSlider;
     AudioSource audioSource;
+    
 
     public void Back()
     {
@@ -20,17 +27,35 @@ public class SettingsMenuController : MonoBehaviour
 
     public void ResetChanges()
     {
+        Screen.SetResolution(1920, 1080, false);
+        resolutionDropdown.value = 0;
+        fullscreenToggle.isOn = false;
 
+        Screen.brightness = 0.5f;
+        brightnessSlider.value = 0.5f;
+
+        QualitySettings.SetQualityLevel(4, true);
+        qualityDropdown.value = 1;
+
+        Application.targetFrameRate = 30;
+        frameRateDropdown.value = 0;
+
+        audioSource.volume = 1;
+        audioSlider.value = 1;
     }
 
     public void FullScreen(bool fullscreen)
     {
+
         if (fullscreen == true)
         {
             Screen.fullScreen = true;
         }
         else
+        {
             Screen.fullScreen = false;
+        }
+
     }
 
     public void Resolution(Text res)
@@ -55,6 +80,9 @@ public class SettingsMenuController : MonoBehaviour
         {
             Screen.SetResolution(3840, 2160, false);
         }
+
+        //PlayerPrefs.SetInt(res.text.ToString(), resolutionDropdown.value) ;
+        //PlayerPrefs.Save();
     }
 
     public void Quality(Text quality)
