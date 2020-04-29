@@ -19,9 +19,6 @@ public class CloudsScript : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        //camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        //quadMesh = GetComponent<Mesh>();
-        //cloudMaterial = GetComponent<Material>();
     }
 
     void Update()
@@ -38,6 +35,6 @@ public class CloudsScript : MonoBehaviour
             Graphics.DrawMesh(quadMesh, matrix, cloudMaterial, layer, camera, 0, null, true, false, false);
         }
 
-        //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 100);
+        //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 50);
     }
 }
