@@ -9,7 +9,7 @@ public class HoleTeleportationScript : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player").transform.position == other.transform.position)
         {
-            GameObject.FindGameObjectWithTag("Player").transform.position = newHole.transform.position + transform.TransformDirection(Vector3.back * 2);
+            GameObject.FindGameObjectWithTag("Player").transform.position = newHole.transform.position + transform.TransformDirection(Vector3.forward * 2);
         }
     }
 }
