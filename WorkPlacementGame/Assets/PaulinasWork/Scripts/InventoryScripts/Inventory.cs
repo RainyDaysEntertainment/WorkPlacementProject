@@ -12,17 +12,19 @@ public class Inventory : ScriptableObject
     public void AddItem(Item item)
     {
         bool slotTaken = false;
-        for(int i=0;i<InventoryItems.Count;i++)
+        for (int i = 0; i < InventoryItems.Count; i++)
         {
-            if(InventoryItems[i].item == item)
+            if (InventoryItems[i].item == item)
             {
                 slotTaken = true;
                 break;
             }
         }
-        if(!slotTaken)
+        if (!slotTaken)
         {
             InventoryItems.Add(new Slot(item));
         }
     }
+
+  
 }
