@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211af891ccfb9ec44bd234daadafa406, type: 3}
   m_Name: Weapon
   m_EditorClassIdentifier: 
-  itemName: Sword1
+  itemName: Mighty Sword
   itemDescription: waaaa
-  gameObject: {fileID: 0}
+  gameObject: {fileID: 2114661600920588264, guid: 7db003c207673c34f8384e93c2ba404c,
+    type: 3}
   type: 2
   damage: 10

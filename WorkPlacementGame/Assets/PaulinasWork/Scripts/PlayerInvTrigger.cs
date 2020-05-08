@@ -17,7 +17,7 @@ public class PlayerInvTrigger : MonoBehaviour
         var item = other.GetComponent<ItemObject>();
         if (item)
         {
-            inv.AddItem(item.item);
+            inv.AddItem(item.item, 1);
             Destroy(other.gameObject);
         }
     }
