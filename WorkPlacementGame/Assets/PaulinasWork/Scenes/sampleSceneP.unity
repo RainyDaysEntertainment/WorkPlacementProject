@@ -198,13 +198,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23963361}
-  m_LocalRotation: {x: 0.42705804, y: 0, z: 0, w: 0.9042242}
-  m_LocalPosition: {x: -0.26, y: 9.01, z: -5.95}
+  m_LocalRotation: {x: 0.29522753, y: -0, z: -0, w: 0.95542705}
+  m_LocalPosition: {x: -0.26, y: 6.05, z: -5.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 473604106}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50.562004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 34.342003, y: 0, z: 0}
 --- !u!114 &23963365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +466,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &411896832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411896833}
+  m_Layer: 5
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &411896833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411896832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 961662020}
+  m_Father: {fileID: 1756604848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &442956198
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473604106}
+  - component: {fileID: 473604111}
   - component: {fileID: 473604105}
   - component: {fileID: 473604104}
   - component: {fileID: 473604109}
@@ -714,6 +751,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536a6385b8b46db4c87c37f321049d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &473604111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473604102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0863db6833c47c4fab209a205c4f2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1756604847}
+  isOpen: 0
 --- !u!1 &520854942
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +847,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0434bb6fb18acfa48a267feca4c82953, type: 2}
+  - {fileID: 2100000, guid: dabc35bd264bcaa409fd53f63823ae65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -866,7 +917,7 @@ GameObject:
   - component: {fileID: 961662024}
   - component: {fileID: 961662021}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: InventoryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,17 +930,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961662019}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.47501, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1756604848}
+  m_Father: {fileID: 411896833}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 356, y: -178}
-  m_SizeDelta: {x: 393.30945, y: -446.38837}
+  m_AnchoredPosition: {x: 345.4, y: -178}
+  m_SizeDelta: {x: 2257.8613, y: 533.61163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961662021
 MonoBehaviour:
@@ -980,7 +1031,7 @@ GameObject:
   - component: {fileID: 1756604846}
   - component: {fileID: 1756604845}
   m_Layer: 5
-  m_Name: InventoryCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1108,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 961662020}
+  - {fileID: 411896833}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
