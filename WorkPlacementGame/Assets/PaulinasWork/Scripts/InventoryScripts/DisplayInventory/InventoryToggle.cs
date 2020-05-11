@@ -4,27 +4,19 @@ using UnityEngine;
 
 public class InventoryToggle : MonoBehaviour
 {
-    public Canvas canvas;
-    public bool isOpen = false;
+    GameObject inventoryPanel;
     void Start()
     {
-        canvas.enabled = false;
+        inventoryPanel = GameObject.Find("Inventory");
+        inventoryPanel.SetActive(false);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            canvas.enabled = !canvas.enabled;
-        }
-
-        if (canvas.enabled == true)
-        {
-            isOpen = true;
-        }
-        else
-        {
-            isOpen = false;
-        }
+            bool isActive = inventoryPanel.activeSelf;
+            inventoryPanel.SetActive(!isActive);
+        }  
     }
 }

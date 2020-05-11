@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Mighty Sword
   itemDescription: waaaa
-  gameObject: {fileID: 2114661600920588264, guid: 7db003c207673c34f8384e93c2ba404c,
+  gameObject: {fileID: 3124915240462077883, guid: f59ad9340eb1d0f42987d9b8cd6a7e14,
     type: 3}
   type: 2
   damage: 10
