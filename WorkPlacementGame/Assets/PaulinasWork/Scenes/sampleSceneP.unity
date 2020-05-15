@@ -877,7 +877,6 @@ GameObject:
   - component: {fileID: 961662023}
   - component: {fileID: 961662022}
   - component: {fileID: 961662024}
-  - component: {fileID: 961662025}
   - component: {fileID: 961662021}
   m_Layer: 5
   m_Name: InventoryPanel
@@ -981,18 +980,6 @@ MonoBehaviour:
   x_space: 5
   y_space: 5
   colmn: 7
---- !u!114 &961662025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961662019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342105e464f46184a9717b72ae0694c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1000112291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,12 +1652,12 @@ PrefabInstance:
     - target: {fileID: 1703416359775827897, guid: 7f32af3707eb5d24c980d14b51884ade,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -152.3
+      value: -177
       objectReference: {fileID: 0}
     - target: {fileID: 1703416359775827897, guid: 7f32af3707eb5d24c980d14b51884ade,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 309.9
+      value: 352
       objectReference: {fileID: 0}
     - target: {fileID: 1703416359775827897, guid: 7f32af3707eb5d24c980d14b51884ade,
         type: 3}
@@ -1712,5 +1699,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6012922020720616658, guid: 7f32af3707eb5d24c980d14b51884ade, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f32af3707eb5d24c980d14b51884ade, type: 3}
