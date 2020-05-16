@@ -13,21 +13,21 @@ public class SlotDisplay : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
     public int x_space;
     public int y_space;
     public int colmn;
-   // private GameObject tooltip;
-   // private TextMeshProUGUI tiptext;
+    private GameObject tooltip;
+    private TextMeshProUGUI tiptext;
 
     public void Start()
     {
-       // tooltip = GameObject.Find("toolTip").GetComponent<Image>().gameObject;
-        //tiptext = GameObject.Find("tipText").GetComponent<TextMeshProUGUI>();
-        //tooltip.SetActive(false);
+        tooltip = GameObject.Find("toolTip").GetComponent<Image>().gameObject;
+        tiptext = GameObject.Find("tipText").GetComponent<TextMeshProUGUI>();
+        tooltip.SetActive(false);
         Create();
     }
 
     private void Update()
     {
         UpdateDisplay();
-       // DisplayInfo();
+        DisplayInfo();
     }
 
     private void UpdateDisplay()
@@ -67,38 +67,36 @@ public class SlotDisplay : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
         return new Vector3(x_space *(i % colmn), (-y_space * (i/colmn)), 0f);
     }
 
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
-    //    ShowToolTip();
-        
-    //    //tiptext.text = gameObject.GetComponent<Slot>().item.itemName + " " + gameObject.GetComponent<Slot>().item.itemDescription;
-    //}
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShowToolTip();
+    }
 
-    //public void OnPointerExit(PointerEventData eventData)
-    //{
-    //    HideToolTip();
-    //}
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideToolTip();
+    }
 
-    //public void ShowToolTip()
-    //{
-    //    tooltip.SetActive(true);
-    //}
+    public void ShowToolTip()
+    {
+        tooltip.SetActive(true);
+    }
 
-    //public void HideToolTip()
-    //{
-    //    tiptext.text = "";
-    //    tooltip.SetActive(false);
-    //}
+    public void HideToolTip()
+    {
+        tooltip.SetActive(false);
+        tiptext.text = "";
+    }
 
-    //public void DisplayInfo()
-    //{
-    //    for (int i = 0; i < inventory.InventoryItems.Count; i++)
-    //    {
-    //        if (itemsDisplay.ContainsKey(inventory.InventoryItems[i]))
-    //        {
-    //            tiptext.text
-    //               = inventory.InventoryItems[i].item.itemName.ToString() + " " + inventory.InventoryItems[i].item.itemDescription.ToString();
-    //        }
-    //    }
-    //}
+    public void DisplayInfo()
+    {
+        for (int i = 0; i < inventory.InventoryItems.Count; i++)
+        {
+            if (itemsDisplay.ContainsKey(inventory.InventoryItems[i]))
+            {
+                tiptext.text
+                   = inventory.InventoryItems[i].item.itemName.ToString() + " " + inventory.InventoryItems[i].item.itemDescription.ToString();
+            }
+        }
+    }
 }

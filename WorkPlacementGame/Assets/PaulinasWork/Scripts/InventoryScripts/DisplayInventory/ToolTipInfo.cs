@@ -7,16 +7,18 @@ using UnityEngine.UI;
 
 public class ToolTipInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject tooltip;
-    public TextMeshProUGUI tiptext;
-    public Slot Slot;
+    GameObject tooltip;
+    TextMeshProUGUI tiptext;
     private string name1;
     private string description;
+    Inventory inventory;
+    Slot slot;
+
 
     public void Start()
-    {
-        // tooltip = GameObject.Find("toolTip").GetComponent<Image>().gameObject;
-        // tiptext = GameObject.Find("tipText").GetComponentInChildren<TextMeshProUGUI>();        
+    { 
+        tooltip = GameObject.Find("toolTip").GetComponent<Image>().gameObject;
+        tiptext = GameObject.Find("tipText").GetComponentInChildren<TextMeshProUGUI>();        
         tooltip.SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData)
@@ -32,14 +34,14 @@ public class ToolTipInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void ShowToolTip()
     {
         tooltip.SetActive(true);
-        name1 = Slot.item.itemName;
-        description = Slot.item.itemDescription;
+    }
+    public void ShowInfo()
+    {
         tiptext.text = name1 + "" + description;
     }
 
     public void HideToolTip()
     {
-        tiptext.text = "";
         tooltip.SetActive(false);
     }
 
