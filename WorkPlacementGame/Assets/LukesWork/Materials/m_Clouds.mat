@@ -81,7 +81,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _cloudHeight: 1.5
-    - _midYValue: 2.699997
+    - _midYValue: 19.6
     m_Colors:
     - Color_55E363D8: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
