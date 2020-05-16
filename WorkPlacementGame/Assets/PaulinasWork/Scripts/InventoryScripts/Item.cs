@@ -8,6 +8,7 @@ public enum Type { Quest, Consumable, Weapon }
 public abstract class Item : ScriptableObject
 {
     public string itemName;
+    [TextArea(20,30)]
     public string itemDescription;
     public GameObject gameObject;
     public Type type;
