@@ -36,6 +36,45 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-827342469710438025
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  shadows:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0.48040453}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0.07585335}
+  highlights:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0.07585336}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  shadowsEnd:
+    m_OverrideState: 0
+    m_Value: 0.3
+    min: 0
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 0.55
+    min: 0
+  highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
 --- !u!114 &-712540141350271100
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -71,11 +110,11 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: 25
     min: 0.1
   aperture:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 4
     min: 1
     max: 32
   focalLength:
@@ -114,6 +153,7 @@ MonoBehaviour:
   - {fileID: -8436397260402652478}
   - {fileID: -712540141350271100}
   - {fileID: 5328442924341578814}
+  - {fileID: -827342469710438025}
 --- !u!114 &5328442924341578814
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -126,15 +166,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 1.5
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.5
     min: 0
   scatter:
     m_OverrideState: 0
