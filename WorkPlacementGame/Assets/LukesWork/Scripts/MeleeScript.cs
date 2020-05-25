@@ -6,14 +6,35 @@ using UnityEngine;
 public class MeleeScript : MonoBehaviour
 {
     public Transform attackPoint;
-    public float attackRange = 1f;
+    public float attackRange = 1f, timeLeft = 1, timeReset = 1;
     public LayerMask enemyLayers;
-    
+    bool countdown = false;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+            countdown = true;
+        }
+
+        if (countdown)
+        {
+            timeLeft -= Time.deltaTime;
+            
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                if (timeLeft < 0)
+                {
+                    RangedAttack();
+                }
+                else
+                {
+                    Attack();
+                }
+
+                countdown = false;
+                timeLeft = timeReset;
+            }
         }
     }
 
@@ -24,6 +45,16 @@ public class MeleeScript : MonoBehaviour
         foreach (Collider enemy in hitEnemies)
         {
             Debug.Log("Sword hit " + enemy.name);
+        }
+    }
+
+    private void RangedAttack()
+    {
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+            Debug.Log("Ranged hit " + enemy.name);
         }
     }
 
