@@ -55,7 +55,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0.48040453}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.07585335}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.054462973}
   highlights:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0.07585336}
@@ -110,11 +110,11 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 25
+    m_Value: 30
     min: 0.1
   aperture:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 6.75
     min: 1
     max: 32
   focalLength:
@@ -170,11 +170,11 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 0.95
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 10
     min: 0
   scatter:
     m_OverrideState: 0
