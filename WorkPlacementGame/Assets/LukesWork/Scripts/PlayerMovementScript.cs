@@ -6,9 +6,10 @@ public class PlayerMovementScript : MonoBehaviour
 {
     GameObject player;
     Rigidbody rb;
-    float speed = 6;
+    float speed;
     public bool onGround;
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
+    Vector3 movement;
 
     void Start()
     {
@@ -21,9 +22,9 @@ public class PlayerMovementScript : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
+        movement = new Vector3(horizontal, 0, vertical);
 
-        rb.MovePosition(transform.position + movement);
+        rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
 
         if (onGround)
         {
@@ -36,7 +37,12 @@ public class PlayerMovementScript : MonoBehaviour
             rb.useGravity = false;
         }
 
-        transform.rotation = Quaternion.LookRotation(movement);
+        if (movement != Vector3.zero)
+        {
+            //transform.rotation = Quaternion.LookRotation(movement);
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                Quaternion.LookRotation(movement.normalized), 0.2f);
+        }
     }
 
     private void Update()
@@ -45,6 +51,16 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
             rb.AddForce((Vector3.up * 6000) + (transform.TransformDirection(Vector3.forward) * 1000));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            speed = 2;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            speed = 6;
         }
 
         RaycastHit hit;
