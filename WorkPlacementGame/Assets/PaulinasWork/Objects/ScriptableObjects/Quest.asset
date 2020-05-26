@@ -16,6 +16,6 @@ MonoBehaviour:
   itemDescription: 'This is an item to open
 
     blah blah blah'
-  gameObject: {fileID: 1720973743393619907, guid: eea407ecb3cc79a46b22e6c00efc6a49,
+  gameObject: {fileID: 6598373569041426402, guid: eea407ecb3cc79a46b22e6c00efc6a49,
     type: 3}
   type: 0
