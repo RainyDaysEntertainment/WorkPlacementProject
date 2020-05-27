@@ -25,10 +25,10 @@ public class PlayerHealth : MonoBehaviour
     {
         healthSlider.GetComponent<Slider>().value = value;
 
-        if (value < healthSlider.GetComponent<Slider>().maxValue && canIncrease && Time.timeScale != 0)
-        {
-            value += increaseValue;
-        }
+        //if (value < healthSlider.GetComponent<Slider>().maxValue && canIncrease && Time.timeScale != 0)
+        //{
+        //    value += increaseValue;
+        //}
 
         if (value <= 0)
         {

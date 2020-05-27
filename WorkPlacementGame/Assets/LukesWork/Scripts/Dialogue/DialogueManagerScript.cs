@@ -9,7 +9,7 @@ public class DialogueManagerScript : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
     public GameObject dialogueBox;
-    public LeanTweenType easeType;
+    public LeanTweenType easeType, rotateType;
 
     string statement;
 
@@ -21,10 +21,13 @@ public class DialogueManagerScript : MonoBehaviour
     {
         statements = new Queue<string>();
         statementEndBool = true;
+        LeanTween.rotateZ(nameText.gameObject, 15, 0.75f).setEase(rotateType).setLoopPingPong();
     }
 
     private void Update()
     {
+        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = false;
@@ -42,11 +45,15 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        LeanTween.moveY(dialogueBox, 100, 0.5f).setEase(easeType);
+        LeanTween.moveY(dialogueBox, Screen.height / 4, 0.8f).setEase(easeType);
 
+        
         nameText.text = dialogue.characterName;
+        nameText.color = dialogue.nameColour;
 
         statements.Clear();
+
+        statementEndBool = false;
 
         foreach (string statement in dialogue.statements)
         {
@@ -64,6 +71,8 @@ public class DialogueManagerScript : MonoBehaviour
             return;
         }
 
+        statementEndBool = false;
+
         statement = statements.Dequeue();
         StopAllCoroutines();
         StartCoroutine(LetterByLetterStatement(statement));
@@ -73,7 +82,7 @@ public class DialogueManagerScript : MonoBehaviour
     {
         dialogueText.text = "";
         statementEndBool = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
 
         foreach (char letter in statement.ToCharArray())
         {
@@ -97,7 +106,7 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void EndDialogue()
     {
-        LeanTween.moveY(dialogueBox, -100, 0.5f).setEase(easeType);
+        LeanTween.moveY(dialogueBox, -Screen.height / 2, 0.8f).setEase(easeType);
         GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = true;
         InvokeRepeating("BoolSwitch", 0.5f, 2000);
     }

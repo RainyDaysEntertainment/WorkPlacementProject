@@ -88,7 +88,7 @@ public class MeleeScript : MonoBehaviour
         Rigidbody rb = chargeShot.GetComponent<Rigidbody>();
         rb.AddForce((playerObj.transform.forward * 10), ForceMode.Impulse);
         chargeShot.transform.rotation = playerObj.transform.rotation;
-        Destroy(chargeShot, 0.5f);
+        Destroy(chargeShot, 5f);
         //chargeShot.transform.position = player.moveDirection;
     }
 
