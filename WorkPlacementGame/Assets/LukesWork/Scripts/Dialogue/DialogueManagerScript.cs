@@ -15,18 +15,28 @@ public class DialogueManagerScript : MonoBehaviour
 
     private Queue<string> statements;
 
-    bool statementEndBool = false;
+    public bool statementEndBool = true;
 
     void Start()
     {
         statements = new Queue<string>();
+        statementEndBool = true;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            StatementSkip();
+            GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = false;
+
+            if (dialogueText.text != statement)
+            {
+                StatementSkip();
+            }
+            else
+            {
+                NextStatement();
+            }
         }
     }
 
@@ -63,16 +73,16 @@ public class DialogueManagerScript : MonoBehaviour
     {
         dialogueText.text = "";
         statementEndBool = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
 
         foreach (char letter in statement.ToCharArray())
         {
             dialogueText.text += letter;
 
-            if (dialogueText.text.Length == statement.Length)
-            {
-                statementEndBool = true;
-            }
+            //if (dialogueText.text.Length == statement.Length)
+            //{
+            //    StopAllCoroutines();
+            //}
 
             yield return new WaitForSeconds(0.02f);
         }
@@ -81,12 +91,20 @@ public class DialogueManagerScript : MonoBehaviour
     public void StatementSkip()
     {
         //dialogueText.text = "";
-        dialogueText.text = statement;
         StopAllCoroutines();
+        dialogueText.text = statement;
     }
 
     public void EndDialogue()
     {
         LeanTween.moveY(dialogueBox, -100, 0.5f).setEase(easeType);
+        GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = true;
+        InvokeRepeating("BoolSwitch", 0.5f, 2000);
+    }
+
+    void BoolSwitch()
+    {
+        statementEndBool = true;
+        CancelInvoke("BoolSwitch");
     }
 }

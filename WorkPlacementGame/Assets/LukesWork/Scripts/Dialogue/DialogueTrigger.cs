@@ -5,13 +5,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    bool trigger = false;
+    public DialogueManagerScript manager;
+    public bool input;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && manager.statementEndBool)
         {
-            trigger = true;
+            input = true;
         }
     }
 
@@ -22,14 +23,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && trigger)
+        if (input)
         {
+            input = false;
             TriggerDialogue();
-            trigger = false;
-        }
-        else
-        {
-            trigger = false;
         }
     }
 }

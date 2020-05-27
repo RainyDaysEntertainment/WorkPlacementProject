@@ -10,11 +10,13 @@ public class PlayerMovementScript : MonoBehaviour
     public bool onGround;
     public Vector3 moveDirection;
     Vector3 movement;
+    DialogueManagerScript dialogue;
 
     void Start()
     {
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
+        dialogue = GameObject.Find("DialogueManager").GetComponent<DialogueManagerScript>();
     }
 
     void FixedUpdate()
@@ -23,8 +25,18 @@ public class PlayerMovementScript : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         movement = new Vector3(horizontal, 0, vertical);
+        
+        if (dialogue.statementEndBool == true)
+        {
+            rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
 
-        rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
+            if (movement != Vector3.zero)
+            {
+                //transform.rotation = Quaternion.LookRotation(movement);
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+                    Quaternion.LookRotation(movement.normalized), 0.2f);
+            }
+        }
 
         if (onGround)
         {
@@ -35,13 +47,6 @@ public class PlayerMovementScript : MonoBehaviour
         {
             rb.AddForce(Physics.gravity * rb.mass);
             rb.useGravity = false;
-        }
-
-        if (movement != Vector3.zero)
-        {
-            //transform.rotation = Quaternion.LookRotation(movement);
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                Quaternion.LookRotation(movement.normalized), 0.2f);
         }
     }
 
