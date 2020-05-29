@@ -13,12 +13,15 @@ public class PlayerHealth : MonoBehaviour
     
     GameObject player, healthSlider;
 
+    public ScreenShake screenShake;
+
     void Start()
     {
         player = GameObject.Find("Player");
         healthSlider = GameObject.Find("HealthSlider");
         
         value = healthSlider.GetComponent<Slider>().maxValue;
+        screenShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
     }
     
     void Update()
@@ -44,6 +47,15 @@ public class PlayerHealth : MonoBehaviour
             canIncrease = false;
             value -= decreaseValue;
             InvokeRepeating("Increase", 2, 2000);
+
+            StartCoroutine(screenShake.Shake(0.15f, 0.2f));
+
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.AddExplosionForce(150, other.transform.position, 5, 2.5f, ForceMode.Impulse);
+            }
         }
     }
 

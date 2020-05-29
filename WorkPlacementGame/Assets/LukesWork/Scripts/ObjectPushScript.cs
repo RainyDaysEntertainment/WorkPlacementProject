@@ -23,14 +23,14 @@ public class ObjectPushScript : MonoBehaviour
             obj = GetObject();
             pos = GetPosition();
 
-            cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 1f);
+            cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 3f);
 
             move = false;
         }
 
         if (obj != null && cantMove == false)
             obj.transform.position = Vector3.Lerp(
-                obj.transform.position, pos, Time.deltaTime);
+                obj.transform.position, pos, 2 * Time.deltaTime);
 
         Invoke("StopMoving", 2.5f);
     }
@@ -38,8 +38,7 @@ public class ObjectPushScript : MonoBehaviour
     void MoveToPosition()
     {
         //hit.collider.gameObject.transform.position = transform.position + (dir * 5);
-        pos = Vector3.Lerp(obj.transform.position,
-            GetPosition(), Time.deltaTime);
+        pos = GetPosition();
     }
 
     GameObject GetObject()
@@ -51,7 +50,7 @@ public class ObjectPushScript : MonoBehaviour
     {
         var dir = Quaternion.Euler(vec) * Vector3.forward;
 
-        return obj.transform.position + (dir * 5);
+        return obj.transform.position + (dir * 2);
     }
 
     void StopMoving()
