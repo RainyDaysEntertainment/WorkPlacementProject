@@ -8,7 +8,7 @@ public class DialogueManagerScript : MonoBehaviour
 {
     public TMP_Text nameText;
     public TMP_Text dialogueText;
-    public GameObject dialogueBox;
+    public GameObject dialogueBox, nameBackground;
     public LeanTweenType easeType, rotateType;
 
     string statement;
@@ -21,13 +21,11 @@ public class DialogueManagerScript : MonoBehaviour
     {
         statements = new Queue<string>();
         statementEndBool = true;
-        LeanTween.rotateZ(nameText.gameObject, 15, 0.75f).setEase(rotateType).setLoopPingPong();
+        LeanTween.rotateZ(nameBackground, 20, 1).setEase(rotateType).setLoopPingPong();
     }
 
     private void Update()
     {
-        
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = false;
@@ -45,8 +43,7 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        LeanTween.moveY(dialogueBox, Screen.height / 4, 0.8f).setEase(easeType);
-
+        LeanTween.moveY(dialogueBox, Screen.height / 6, 0.8f).setEase(easeType);
         
         nameText.text = dialogue.characterName;
         nameText.color = dialogue.nameColour;
