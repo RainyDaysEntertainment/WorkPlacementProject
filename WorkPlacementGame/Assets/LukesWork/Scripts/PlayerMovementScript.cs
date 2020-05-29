@@ -52,7 +52,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
             rb.AddForce((Vector3.up * 6000) + (transform.TransformDirection(Vector3.forward) * 1000));
