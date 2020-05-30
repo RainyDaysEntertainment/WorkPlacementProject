@@ -31,7 +31,7 @@ public class MeleeScript : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
 
-            if (!particles.isPlaying)
+            if (!particles.isPlaying && timeLeft < 0.25f)
                 particles.Play();
 
             if (Input.GetKeyUp(KeyCode.Mouse0))

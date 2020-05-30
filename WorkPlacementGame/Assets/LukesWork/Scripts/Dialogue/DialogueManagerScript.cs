@@ -8,8 +8,8 @@ public class DialogueManagerScript : MonoBehaviour
 {
     public TMP_Text nameText;
     public TMP_Text dialogueText;
-    public GameObject dialogueBox, nameBackground;
-    public LeanTweenType easeType, rotateType;
+    public GameObject dialogueBox, nameBackground, arrow;
+    public LeanTweenType easeType, rotateType, arrowType;
 
     string statement;
 
@@ -21,7 +21,8 @@ public class DialogueManagerScript : MonoBehaviour
     {
         statements = new Queue<string>();
         statementEndBool = true;
-        LeanTween.rotateZ(nameBackground, 20, 1).setEase(rotateType).setLoopPingPong();
+        LeanTween.rotateZ(nameBackground, 14, 1.25f).setEase(rotateType).setLoopPingPong();
+        LeanTween.moveX(arrow, arrow.transform.position.x + 8, 0.65f).setEase(arrowType).setLoopPingPong();
     }
 
     private void Update()

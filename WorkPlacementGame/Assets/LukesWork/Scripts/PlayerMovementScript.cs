@@ -59,7 +59,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            speed = 2;
+            speed = 1;
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))

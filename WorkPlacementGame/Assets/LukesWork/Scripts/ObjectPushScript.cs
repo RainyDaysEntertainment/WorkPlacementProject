@@ -18,15 +18,16 @@ public class ObjectPushScript : MonoBehaviour
 
         Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f);
 
-        if (Input.GetKeyDown(KeyCode.E) && move && hit.collider.tag == "Grab")
-        {
-            obj = GetObject();
-            pos = GetPosition();
+        if (hit.collider.CompareTag("Grab"))
+            if (Input.GetKeyDown(KeyCode.E) && move)
+            {
+                obj = GetObject();
+                pos = GetPosition();
 
-            cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 3f);
+                cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 3f);
 
-            move = false;
-        }
+                move = false;
+            }
 
         if (obj != null && cantMove == false)
             obj.transform.position = Vector3.Lerp(
