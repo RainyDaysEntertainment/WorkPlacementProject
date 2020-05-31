@@ -21,7 +21,7 @@ Cmd: compileComputeKernel
 Cmd: compileComputeKernel
   api=4 insize=18731 outsize=8873 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=18731 outsize=10507 ok=1
+  api=4 insize=18731 outsize=10338 ok=1
 Cmd: preprocess
   insize=1431 outsize=378 ok=1
 Cmd: compileSnippet
@@ -377,7 +377,7 @@ Cmd: compileComputeKernel
 Cmd: preprocessCompute
   insize=11166 outsize=11176 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=11176 outsize=9684 ok=1
+  api=4 insize=11176 outsize=9840 ok=1
 Cmd: preprocess
   insize=1231 outsize=322 ok=1
 Cmd: compileSnippet
@@ -397,7 +397,7 @@ Cmd: compileSnippet
 Cmd: preprocessCompute
   insize=2114 outsize=2120 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=2120 outsize=1000 ok=1
+  api=4 insize=2120 outsize=1005 ok=1
 Cmd: preprocess
   insize=1355 outsize=468 ok=1
 Cmd: compileSnippet
@@ -585,7 +585,7 @@ Cmd: preprocess
 Cmd: preprocessCompute
   insize=2128 outsize=2134 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=2134 outsize=372 ok=1
+  api=4 insize=2134 outsize=1515 ok=1
 Cmd: preprocess
   insize=12668 outsize=566 ok=1
 Cmd: compileSnippet
@@ -885,7 +885,7 @@ Cmd: compileSnippet
 Cmd: preprocessCompute
   insize=3526 outsize=3532 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=3532 outsize=2622 ok=1
+  api=4 insize=3532 outsize=2521 ok=1
 Cmd: preprocess
   insize=978 outsize=231 ok=1
 Cmd: preprocess
