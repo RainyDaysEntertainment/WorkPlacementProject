@@ -3,30 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragAndDropItems : MonoBehaviour, IDragHandler, IEndDragHandler
-{ 
-    public Vector3 pos;
-
-    void Awake()
+public class DragAndDropItems : MonoBehaviour, IPointerDownHandler, IDropHandler, IDragHandler,  IBeginDragHandler, IEndDragHandler
+{
+    private Canvas canvas;
+    private RectTransform rect;
+    private CanvasGroup canvasGroup;
+    private void Awake()
     {
-        pos = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        rect = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        canvasGroup.alpha = .6f;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        this.transform.position = Input.mousePosition;
+        rect.anchoredPosition += eventData.delta / canvas.scaleFactor; 
     }
 
-    public void OnEndDrag(PointerEventData eventdata)
+    public void OnEndDrag(PointerEventData eventData)
     {
-        this.transform.position = pos;
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if(other == GameObject.FindGameObjectWithTag("equip"))
-        {
-            this.transform.position = other.transform.position;
-        }
+        Debug.Log("PointerDown");
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("drop");
     }
 }
