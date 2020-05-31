@@ -21,7 +21,7 @@ public class DialogueManagerScript : MonoBehaviour
     {
         statements = new Queue<string>();
         statementEndBool = true;
-        LeanTween.rotateZ(nameBackground, 14, 1.25f).setEase(rotateType).setLoopPingPong();
+        LeanTween.rotateZ(nameBackground, 10, 0.8f).setEase(rotateType).setLoopPingPong();
         LeanTween.moveX(arrow, arrow.transform.position.x + 8, 0.65f).setEase(arrowType).setLoopPingPong();
     }
 
@@ -29,23 +29,26 @@ public class DialogueManagerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = false;
+            if (GameObject.Find("DialogueTrigger") != null)
+            {
+                GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = false;
 
-            if (dialogueText.text != statement)
-            {
-                StatementSkip();
-            }
-            else
-            {
-                NextStatement();
+                if (dialogueText.text != statement)
+                {
+                    StatementSkip();
+                }
+                else
+                {
+                    NextStatement();
+                }
             }
         }
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        LeanTween.moveY(dialogueBox, Screen.height / 6, 0.8f).setEase(easeType);
-        
+        LeanTween.moveY(dialogueBox, Screen.height / 7, 0.8f).setEase(easeType);
+
         nameText.text = dialogue.characterName;
         nameText.color = dialogue.nameColour;
 
@@ -86,25 +89,19 @@ public class DialogueManagerScript : MonoBehaviour
         {
             dialogueText.text += letter;
 
-            //if (dialogueText.text.Length == statement.Length)
-            //{
-            //    StopAllCoroutines();
-            //}
-
             yield return new WaitForSeconds(0.02f);
         }
     }
 
     public void StatementSkip()
     {
-        //dialogueText.text = "";
         StopAllCoroutines();
         dialogueText.text = statement;
     }
 
     public void EndDialogue()
     {
-        LeanTween.moveY(dialogueBox, -Screen.height / 2, 0.8f).setEase(easeType);
+        LeanTween.moveY(dialogueBox, -Screen.height / 6, 0.8f).setEase(easeType);
         GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = true;
         InvokeRepeating("BoolSwitch", 0.5f, 2000);
     }
@@ -113,5 +110,10 @@ public class DialogueManagerScript : MonoBehaviour
     {
         statementEndBool = true;
         CancelInvoke("BoolSwitch");
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 }

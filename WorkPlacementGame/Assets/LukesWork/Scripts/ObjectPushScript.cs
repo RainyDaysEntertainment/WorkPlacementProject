@@ -8,6 +8,7 @@ public class ObjectPushScript : MonoBehaviour
     RaycastHit hit, hit2;
     public bool move = true, cantMove = false;
     public GameObject obj;
+    Collider col;
 
     void Update()
     {
@@ -17,8 +18,9 @@ public class ObjectPushScript : MonoBehaviour
         vec.z = Mathf.Round(vec.z / 90) * 90;
 
         Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f);
+        col = hit.collider;
 
-        if (hit.collider.CompareTag("Grab"))
+        if (col != null && col.CompareTag("Grab"))
             if (Input.GetKeyDown(KeyCode.E) && move)
             {
                 obj = GetObject();
@@ -33,7 +35,7 @@ public class ObjectPushScript : MonoBehaviour
             obj.transform.position = Vector3.Lerp(
                 obj.transform.position, pos, 2 * Time.deltaTime);
 
-        Invoke("StopMoving", 2.5f);
+        Invoke("StopMoving", 3f);
     }
 
     void MoveToPosition()

@@ -26,7 +26,7 @@ public class BombScript : MonoBehaviour
 
     void Explode()
     {
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, knockbackRadius, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapSphere(obj.transform.position, knockbackRadius, enemyLayers);
 
         foreach (Collider enemy in hitEnemies)
         {
@@ -34,7 +34,7 @@ public class BombScript : MonoBehaviour
 
             if (rb != null)
             {
-                rb.AddExplosionForce(knockbackStrength, obj.transform.position + new Vector3(0, -1, 0), knockbackRadius, 1.5f, ForceMode.Impulse);
+                rb.AddExplosionForce(knockbackStrength, obj.transform.position + new Vector3(0, -1, 0), knockbackRadius, 2.5f, ForceMode.Impulse);
             }
         }
 

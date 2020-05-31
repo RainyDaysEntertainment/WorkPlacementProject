@@ -13,6 +13,7 @@ public class DialogueTrigger : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && manager.statementEndBool)
         {
             input = true;
+            InvokeRepeating("CancelBool", 0.5f, 10);
         }
     }
 
@@ -28,5 +29,11 @@ public class DialogueTrigger : MonoBehaviour
             input = false;
             TriggerDialogue();
         }
+    }
+
+    void CancelBool()
+    {
+        input = false;
+        CancelInvoke();
     }
 }
