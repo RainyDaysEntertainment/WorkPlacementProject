@@ -25,7 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         movement = new Vector3(horizontal, 0, vertical);
-        
+
         if (dialogue.statementEndBool == true)
         {
             rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));

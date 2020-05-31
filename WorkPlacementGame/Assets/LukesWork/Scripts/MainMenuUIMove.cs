@@ -9,6 +9,6 @@ public class MainMenuUIMove : MonoBehaviour
 
     void OnEnable()
     {
-        LeanTween.moveX(gameObject, gameObject.transform.position.x + 350, 2).setDelay(delay).setEase(easeType);
+        LeanTween.moveX(gameObject, gameObject.transform.position.x + 350, 3).setDelay(delay).setEase(easeType);
     }
 }

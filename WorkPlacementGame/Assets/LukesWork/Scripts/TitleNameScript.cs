@@ -10,7 +10,7 @@ public class TitleNameScript : MonoBehaviour
 
     void OnEnable()
     {
-        Invoke("StartLerp", 1);
+        Invoke("StartLerp", 0.5f);
     }
 
     void Update()
@@ -19,7 +19,7 @@ public class TitleNameScript : MonoBehaviour
         {
             gameObject.GetComponent<Image>().color = Color.Lerp(
                 gameObject.GetComponent<Image>().color,
-                new Color(1, 1, 1, 1), Time.deltaTime * 0.5f);
+                new Color(1, 1, 1, 1), Time.deltaTime * 0.75f);
         }
 
         if (gameObject.GetComponent<Image>().color == new Color(1, 1, 1, 0.99f))

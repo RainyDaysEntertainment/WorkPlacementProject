@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     [HideInInspector]
     public bool canIncrease = true;
-    
+
     GameObject player, healthSlider;
 
     public ScreenShake screenShake;
@@ -19,11 +19,11 @@ public class PlayerHealth : MonoBehaviour
     {
         player = GameObject.Find("Player");
         healthSlider = GameObject.Find("HealthSlider");
-        
+
         value = healthSlider.GetComponent<Slider>().maxValue;
         screenShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
     }
-    
+
     void Update()
     {
         healthSlider.GetComponent<Slider>().value = value;

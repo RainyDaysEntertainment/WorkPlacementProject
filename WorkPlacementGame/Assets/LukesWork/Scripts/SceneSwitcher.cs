@@ -7,7 +7,7 @@ public class SceneSwitcher : MonoBehaviour
 {
     public Animator transition;
     private float transitionTime = 1f;
-    public int levelNum = 1;
+    public int levelNum = 2;
 
     public void Update()
     {
@@ -15,6 +15,12 @@ public class SceneSwitcher : MonoBehaviour
         {
             LoadScene();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            LoadScene();
     }
 
     public void LoadScene()
