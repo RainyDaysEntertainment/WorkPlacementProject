@@ -35,5 +35,6 @@ public class SceneSwitcher : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelNumber);
+        //SceneManager.LoadScene("Player Scene", LoadSceneMode.Additive);
     }
 }

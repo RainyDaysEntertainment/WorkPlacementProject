@@ -24,7 +24,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (input)
+        if (input && other.CompareTag("Player"))
         {
             input = false;
             TriggerDialogue();

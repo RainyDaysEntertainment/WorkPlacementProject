@@ -54,15 +54,14 @@ public class DialogueManagerScript : MonoBehaviour
 
         statements.Clear();
 
-        statementEndBool = false;
-
         foreach (string statement in dialogue.statements)
         {
             statements.Enqueue(statement);
-            statementEndBool = false;
         }
 
         NextStatement();
+
+        statementEndBool = false;
     }
 
     public void NextStatement()

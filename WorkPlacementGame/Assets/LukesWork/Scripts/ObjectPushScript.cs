@@ -9,6 +9,12 @@ public class ObjectPushScript : MonoBehaviour
     public bool move = true, cantMove = false;
     public GameObject obj;
     Collider col;
+    ParticleSystem smoke;
+
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -29,6 +35,13 @@ public class ObjectPushScript : MonoBehaviour
                 cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 3f);
 
                 move = false;
+
+                smoke = obj.GetComponentInChildren<ParticleSystem>();
+
+                if (smoke.isStopped)
+                {
+                    smoke.Play();
+                }
             }
 
         if (obj != null && cantMove == false)

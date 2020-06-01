@@ -7,7 +7,7 @@ public class MenuFadeScript : MonoBehaviour
 {
     public Animator transition;
     private float transitionTime = 1f;
-    public int levelNum = 2;
+    public int levelNum = 3;
 
     public void Fade()
     {
@@ -21,5 +21,6 @@ public class MenuFadeScript : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelNumber);
+        //SceneManager.LoadScene("Player Scene", LoadSceneMode.Additive);
     }
 }
