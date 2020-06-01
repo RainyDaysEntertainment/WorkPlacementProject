@@ -59,6 +59,7 @@ public class DialogueManagerScript : MonoBehaviour
         foreach (string statement in dialogue.statements)
         {
             statements.Enqueue(statement);
+            statementEndBool = false;
         }
 
         NextStatement();
@@ -96,6 +97,7 @@ public class DialogueManagerScript : MonoBehaviour
     public void StatementSkip()
     {
         StopAllCoroutines();
+        statementEndBool = false;
         dialogueText.text = statement;
     }
 
@@ -110,10 +112,5 @@ public class DialogueManagerScript : MonoBehaviour
     {
         statementEndBool = true;
         CancelInvoke("BoolSwitch");
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
     }
 }

@@ -15,26 +15,19 @@ public class MainMenuController : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingsMenu;
 
-    private void Start()
-    {
-        mainMenu.SetActive(true);
-        settingsMenu.SetActive(false);
-    }
-
     public void Settings()
     {
-        settingsMenu.SetActive(true);
-        mainMenu.SetActive(false);
+        
     }
 
     public void Continue()
     {
-        SceneManager.LoadScene("MainScene/MainScene");
+        SceneManager.LoadScene(2);
     }
 
     public void NewGame()
     {
-        SceneManager.LoadScene("MainScene/MainScene");
+        SceneManager.LoadScene(3);
     }
 
     public void Quit()

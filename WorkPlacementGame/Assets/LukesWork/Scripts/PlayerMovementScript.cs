@@ -6,7 +6,7 @@ public class PlayerMovementScript : MonoBehaviour
 {
     GameObject player;
     Rigidbody rb;
-    float speed;
+    float speed = 6;
     public bool onGround;
     public Vector3 moveDirection;
     Vector3 movement;
