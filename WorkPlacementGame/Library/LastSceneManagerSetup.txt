@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/PaulinasWork/Scenes/sampleSceneP.unity
+- path: Assets/PaulinasWork/Scenes/house1P.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
