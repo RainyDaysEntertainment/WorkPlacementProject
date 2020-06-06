@@ -1262,7 +1262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 756817979}
   - component: {fileID: 756817982}
-  - component: {fileID: 756817983}
   - component: {fileID: 756817981}
   m_Layer: 5
   m_Name: eqSlot2
@@ -1327,18 +1326,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756817978}
   m_CullTransparentMesh: 0
---- !u!114 &756817983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756817978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4296235ccf703b4a8f131b47a3b322d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &866450104
 GameObject:
   m_ObjectHideFlags: 0
