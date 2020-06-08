@@ -2084,8 +2084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 6d8e003ec57bcdd4593917d2418c7d9b, type: 2}
-  x_space: 0
-  y_space: 0
+  x_space: 289
+  y_space: 14
   colmn: 7
 --- !u!1 &1000112291
 GameObject:

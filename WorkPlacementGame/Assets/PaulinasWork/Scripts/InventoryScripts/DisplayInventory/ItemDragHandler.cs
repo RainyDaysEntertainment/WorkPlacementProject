@@ -5,13 +5,24 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    private RectTransform rect;
+    Vector3 pos;
+
+    void Start()
+    {
+        rect = GetComponent<RectTransform>();
+        pos.x = rect.transform.position.x;
+        pos.y = rect.transform.position.y;
+        pos.z = rect.transform.position.z;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        rect.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.localPosition = Vector3.zero;
+        rect.transform.localPosition = pos;
     }
 }
