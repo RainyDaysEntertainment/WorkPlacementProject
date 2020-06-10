@@ -13,14 +13,9 @@ public class SlotDisplay : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
     public int x_space;
     public int y_space;
     public int colmn;
-   // private GameObject tooltip;
-   // private TextMeshProUGUI tiptext;
 
     public void Start()
     {
-        //tooltip = GameObject.Find("toolTip").GetComponent<Image>().gameObject;
-        //tiptext = GameObject.Find("tipText").GetComponent<TextMeshProUGUI>();
-        //tooltip.SetActive(false);
         Create();
     }
 
