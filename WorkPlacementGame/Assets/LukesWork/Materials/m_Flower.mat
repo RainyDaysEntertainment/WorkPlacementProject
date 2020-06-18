@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_DR_Grass
+  m_Name: m_Flower
   m_Shader: {fileID: -6465566751694194690, guid: 24e6cae1f56ca3f4b9949654617239c2,
     type: 3}
   m_ShaderKeywords: 
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: db054046b216d164396132465a664af8, type: 3}
+        m_Texture: {fileID: 2800000, guid: a64c59c0787592f41b00cb5d6d88589c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -52,7 +52,7 @@ Material:
     - Vector1_377DE680: 0.005
     - Vector1_426A7B5A: 1
     - Vector1_65EAAB3B: 0
-    - Vector1_9B2C8CD1: 0
+    - Vector1_9B2C8CD1: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -79,7 +79,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
---- !u!114 &4478023155256141563
+--- !u!114 &5802091677609032820
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_LR_Grass
+  m_Name: m_UpperRight_Grass
   m_Shader: {fileID: -6465566751694194690, guid: 24e6cae1f56ca3f4b9949654617239c2,
     type: 3}
   m_ShaderKeywords: 
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: a8229a4d565bb4149af5adcb8aa18604, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5efc16ecf2f49884cb27b0a9ed83b3ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
