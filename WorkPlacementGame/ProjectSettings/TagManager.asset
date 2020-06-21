@@ -7,6 +7,9 @@ TagManager:
   - Grab
   - Slot
   - Enemy
+  - equip
+  - Tooltip
+  - Consumable
   layers:
   - Default
   - TransparentFX

@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 473604106}
   - component: {fileID: 473604111}
   - component: {fileID: 473604105}
+  - component: {fileID: 473604113}
   - component: {fileID: 473604104}
   - component: {fileID: 473604109}
   - component: {fileID: 473604108}
@@ -857,6 +858,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1229238617}
   settingsPanel: {fileID: 448451761}
+--- !u!114 &473604113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473604102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3417bc1d89c87b4db250e73ba4b0e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &492151758
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000027629874}
+  m_AnchoredPosition: {x: 0, y: 0.000006095629}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &510335003
@@ -1845,7 +1858,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2004228334}
   m_HandleRect: {fileID: 2004228333}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2764,6 +2777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957991747}
   - component: {fileID: 957991749}
+  - component: {fileID: 957991750}
   - component: {fileID: 957991748}
   m_Layer: 5
   m_Name: consumableSlot
@@ -2828,6 +2842,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957991746}
   m_CullTransparentMesh: 0
+--- !u!114 &957991750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957991746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b34b973a8bcfba498603be7733fc8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &961662019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple1
       objectReference: {fileID: 0}
+    - target: {fileID: 3361078536718497419, guid: f85230e8134d084478e4805e24c6aa66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Consumable
+      objectReference: {fileID: 0}
     - target: {fileID: 5400502973351706702, guid: f85230e8134d084478e4805e24c6aa66,
         type: 3}
       propertyPath: Name
@@ -3489,6 +3520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2709364746474022393, guid: f85230e8134d084478e4805e24c6aa66, type: 3}
+    - {fileID: 6259487091380916418, guid: f85230e8134d084478e4805e24c6aa66, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f85230e8134d084478e4805e24c6aa66, type: 3}
 --- !u!1 &1159929584
 GameObject:

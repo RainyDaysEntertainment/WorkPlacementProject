@@ -25,12 +25,16 @@ public class consumableSetup : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        var item = other.GetComponent<consumable>();
-        if(item)
+    {      
+        if(other.tag == "Consumable")
         {
             amount++;
             Destroy(other.gameObject);
         }
+    }
+
+    void AddConsumable(GameObject itemObject, string itemName,string description, int health,Sprite itemIcon)
+    {
+
     }
 }
