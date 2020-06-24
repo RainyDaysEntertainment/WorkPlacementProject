@@ -8,19 +8,22 @@ public class consumableSetup : MonoBehaviour
 {
     consumable consumable;
     int amount;
+    GameObject consumableSlot;
     TextMeshProUGUI amtTxt;
-    Texture Icon;
+    Sprite Icon;
 
     private void Start()
     {
-        amtTxt = GameObject.Find("amountText").GetComponent<TextMeshProUGUI>();
-        Icon = GameObject.Find("consumableIcon").GetComponent<Texture>();
+        consumableSlot = GameObject.Find("consumableSlot");
+        amtTxt = GameObject.Find("amountText").GetComponentInChildren<TextMeshProUGUI>();
+        Icon = GameObject.Find("consumableIcon").GetComponentInChildren<Sprite>();
+        //amtTxt.text = amount.ToString();
         amount = 0;
+        Icon = consumable.icon;
     }
 
     private void Update()
     {
-        Icon = consumable.icon.mainTexture;
         amtTxt.text = amount.ToString();
     }
 
@@ -31,10 +34,5 @@ public class consumableSetup : MonoBehaviour
             amount++;
             Destroy(other.gameObject);
         }
-    }
-
-    void AddConsumable(GameObject itemObject, string itemName,string description, int health,Sprite itemIcon)
-    {
-
     }
 }
