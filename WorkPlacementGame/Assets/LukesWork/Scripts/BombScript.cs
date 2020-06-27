@@ -18,7 +18,7 @@ public class BombScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            obj = Instantiate(bomb, gameObject.transform.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+            obj = Instantiate(bomb, gameObject.transform.position - new Vector3(0, 0.5f, 0), Quaternion.Euler(-90, 180, 0));
             Invoke("Explode", 3);
             Destroy(obj, 3);
         }

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m_UpDwn_Grass
-  m_Shader: {fileID: -6465566751694194690, guid: 24e6cae1f56ca3f4b9949654617239c2,
+  m_Shader: {fileID: -6465566751694194690, guid: b2b8ca9bea4cb6f4f8ce0bee4e3e7213,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
