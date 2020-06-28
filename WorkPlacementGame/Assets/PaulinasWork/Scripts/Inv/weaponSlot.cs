@@ -10,30 +10,24 @@ public class weaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     bool hover;
     GameObject tip;
     TextMeshProUGUI tipDesc;
-    Image img;
 
     private void Start()
     {
         tip = GameObject.Find("tip");
         tipDesc = GameObject.Find("tipDescription").GetComponent<TextMeshProUGUI>();
-        img = GameObject.Find("tipImg").GetComponent<Image>();
         hover = false;
-        tip.SetActive(false);
+        
     }
 
     private void Update()
     {
         if (hover == true)
         {
-            tip.SetActive(true);
-            img.gameObject.SetActive(true);
-            tipDesc.text = "One of a kind sword! Does decent damage.";
+         
         }
         if (hover == false)
         {
-            tip.SetActive(false);
-            tipDesc.text = "";
-            img.gameObject.SetActive(false);
+     
         }
     }
 
@@ -41,11 +35,14 @@ public class weaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         Debug.Log("Pointer Enter");
         hover = true;
+        tip.SetActive(true);
+        tipDesc.text = "One of a kind sword! Does decent damage.";
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Pointer Exit");
         hover = false;
+        tipDesc.text = "";
     }
 }

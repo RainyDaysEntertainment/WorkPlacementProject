@@ -7,7 +7,7 @@ public class InventoryToggle : MonoBehaviour
     GameObject inventoryPanel;
     void Start()
     {
-        inventoryPanel = GameObject.Find("Inventory");
+        inventoryPanel = GameObject.Find("Inv");
         inventoryPanel.SetActive(false);
     }
 

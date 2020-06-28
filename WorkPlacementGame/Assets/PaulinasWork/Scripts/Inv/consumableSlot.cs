@@ -15,7 +15,6 @@ public class consumableSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     bool hover;
     GameObject tip;
     TextMeshProUGUI tipDesc;
-    Image img;
 
     private void Start()
     {
@@ -24,28 +23,27 @@ public class consumableSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         amount = GameObject.Find("amountText").GetComponent<TextMeshProUGUI>();
         hover = false;
         tip = GameObject.Find("tip");
-        tipDesc = GameObject.Find("tipDescription").GetComponent<TextMeshProUGUI>();
-        img = GameObject.Find("tipImg").GetComponent<Image>();
-        tip.SetActive(false);
+        tipDesc = GameObject.Find("tipDescription").GetComponent<TextMeshProUGUI>();  
+       
     }
 
     private void Update()
-    {
+    {       
         if(hover == true)
         {
             tip.SetActive(true);
-            img.gameObject.SetActive(true);
             tipDesc.text = "Health, one apple restores 1 heart :D";
             if (Input.GetKeyDown(KeyCode.U))
             {
                 Debug.Log("Use");
+                amount.text = (int.Parse(amount.text) - 1).ToString();
             }
+
         }
         if (hover == false)
         {
-            tip.SetActive(false);
+            //tip.SetActive(false);
             tipDesc.text = "";
-            img.gameObject.SetActive(false);
         }
            
     }

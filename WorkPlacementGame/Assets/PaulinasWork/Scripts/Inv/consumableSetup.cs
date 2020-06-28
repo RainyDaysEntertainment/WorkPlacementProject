@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class consumableSetup : MonoBehaviour
 {
-    consumable consumable;
     int amount;
     GameObject consumableSlot;
     TextMeshProUGUI amtTxt;
     Sprite Icon;
+    bool hover;
 
     private void Start()
     {
@@ -18,21 +18,22 @@ public class consumableSetup : MonoBehaviour
         amtTxt = GameObject.Find("amountText").GetComponentInChildren<TextMeshProUGUI>();
         Icon = GameObject.Find("consumableIcon").GetComponentInChildren<Sprite>();
         //amtTxt.text = amount.ToString();
-        amount = 0;
-        Icon = consumable.icon;
+        amtTxt.text = amount.ToString();
     }
 
     private void Update()
     {
-        amtTxt.text = amount.ToString();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {      
+
         if(other.tag == "Consumable")
         {
             amount++;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject);          
         }
+      
     }
 }
