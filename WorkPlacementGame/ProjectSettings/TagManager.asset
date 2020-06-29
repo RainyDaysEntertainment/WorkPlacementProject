@@ -10,6 +10,7 @@ TagManager:
   - equip
   - Tooltip
   - Consumable
+  - eq2
   layers:
   - Default
   - TransparentFX
