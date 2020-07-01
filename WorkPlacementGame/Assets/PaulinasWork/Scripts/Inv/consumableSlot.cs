@@ -18,7 +18,7 @@ public class consumableSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private void Start()
     {
-        slot = GameObject.Find("consumableSlot");
+        slot = GameObject.Find("itemSlot");
         icon = GameObject.Find("consumableIcon").GetComponent<Image>().gameObject;
         amount = GameObject.Find("amountText").GetComponent<TextMeshProUGUI>();
         hover = false;

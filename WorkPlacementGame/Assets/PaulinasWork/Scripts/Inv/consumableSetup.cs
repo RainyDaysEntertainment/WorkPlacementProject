@@ -14,7 +14,7 @@ public class consumableSetup : MonoBehaviour
 
     private void Start()
     {
-        consumableSlot = GameObject.Find("consumableSlot");
+        consumableSlot = GameObject.Find("itemSlot");
         amtTxt = GameObject.Find("amountText").GetComponentInChildren<TextMeshProUGUI>();
         Icon = GameObject.Find("consumableIcon").GetComponentInChildren<Sprite>();
         //amtTxt.text = amount.ToString();
