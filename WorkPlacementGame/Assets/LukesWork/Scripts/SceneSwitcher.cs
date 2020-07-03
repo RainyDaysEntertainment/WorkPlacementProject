@@ -11,10 +11,10 @@ public class SceneSwitcher : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            LoadScene();
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    LoadScene();
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +34,7 @@ public class SceneSwitcher : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(levelNumber);
-        //SceneManager.LoadScene("Player Scene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Player Scene", LoadSceneMode.Single);
+        SceneManager.LoadScene(levelNumber, LoadSceneMode.Additive);
     }
 }

@@ -104,7 +104,7 @@ public class DialogueManagerScript : MonoBehaviour
     {
         LeanTween.moveY(dialogueBox, -Screen.height / 6, 0.8f).setEase(easeType);
         GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = true;
-        InvokeRepeating("BoolSwitch", 0.5f, 2000);
+        InvokeRepeating("BoolSwitch", 0.8f, 2000);
     }
 
     void BoolSwitch()

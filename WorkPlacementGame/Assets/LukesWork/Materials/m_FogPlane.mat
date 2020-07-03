@@ -7,32 +7,24 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_Filter
-  m_Shader: {fileID: -6465566751694194690, guid: 277954d4603ea3449b1a3e190ccc1b7e,
+  m_Name: m_FogPlane
+  m_Shader: {fileID: -6465566751694194690, guid: a3ed80a05343d934eb536c7f6d89b6b5,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: BOOLEAN_4567B48A_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3001
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_170968D8:
-        m_Texture: {fileID: 2800000, guid: 8a1a0db44e47364498742f2cad336f74, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CameraOpaqueTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -52,27 +44,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_98D2FF4A_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 8a1a0db44e47364498742f2cad336f74, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_8D4FC6B4_Out_0:
-        m_Texture: {fileID: 0}
+    - _Texture2DAsset_A9B21194_Out_0:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_190FAEB4: 0
-    - Vector1_2102099B: -0.02
-    - Vector1_477064B3: 120
-    - Vector1_4C0E678D: 1
-    - Vector1_52B2AF2A: 2
-    - Vector1_B7705FE9: 1.7
-    - Vector1_D7839C5B: 7
-    - Vector1_FEB9FCD0: 45
+    - BOOLEAN_4567B48A: 1
+    - Vector1_2512F1A0: 0
+    - Vector1_3A79531A: 1
+    - Vector1_3DF2438D: 2.31
+    - Vector1_91B7D607: 0
+    - Vector1_C0F34F48: 0
+    - Vector1_F47AF3D7: 24
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -95,18 +82,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_437BEAAF: {r: 1, g: 1, b: 1, a: 0}
-    - Color_AC690847: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 0}
-    - Color_FFFDC60D: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
-    - Vector2_72073756: {r: 5, g: 5, b: 0, a: 0}
+    - Color_1BCEBD93: {r: 0, g: 0, b: 0, a: 1}
+    - Vector4_B9B74D53: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _WorldSpaceLightAtten0: {r: 0, g: 0, b: 0, a: 0}
-    - _WorldSpaceLightAttenuation0: {r: 0, g: 0, b: 0, a: 0}
-    - _WorldSpaceLightPos0: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &2443957084620628479
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+--- !u!114 &5539076251988615822
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
