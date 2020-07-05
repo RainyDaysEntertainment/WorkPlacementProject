@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class consumableSetup : MonoBehaviour
 {
     int amount;
-    GameObject consumableSlot;
-    TextMeshProUGUI amtTxt;
-    Sprite Icon;
+    public  GameObject consumableSlot;
+    public TextMeshProUGUI amtTxt;
+    public GameObject Icon;
     bool hover;
 
     private void Start()
     {
-        consumableSlot = GameObject.Find("itemSlot");
-        amtTxt = GameObject.Find("amountText").GetComponentInChildren<TextMeshProUGUI>();
-        Icon = GameObject.Find("consumableIcon").GetComponentInChildren<Sprite>();
+        //consumableSlot = GameObject.Find("itemSlot");
+       // amtTxt = GameObject.Find("amountText").GetComponent<TextMeshProUGUI>();
+        //Icon = GameObject.Find("consumableIcon").GetComponent<Sprite>();
         //amtTxt.text = amount.ToString();
         amtTxt.text = amount.ToString();
     }

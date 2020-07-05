@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class equip1Setup : MonoBehaviour
 {
     int amount;
-    GameObject equipSlot1;
-    TextMeshProUGUI amtTxt;
-    GameObject Icon;
+    public GameObject equipSlot1;
+    public TextMeshProUGUI amtTxt;
+    public GameObject Icon;
     bool hover;
 
     void Start()
     {
-        equipSlot1 = GameObject.Find("equip1");
-        amtTxt = GameObject.Find("eq1Txt").GetComponentInChildren<TextMeshProUGUI>();
-        Icon = GameObject.Find("eq1Img");
+       // equipSlot1 = GameObject.Find("equip1");
+       // amtTxt = GameObject.Find("eq1Txt").GetComponentInChildren<TextMeshProUGUI>();
+       // Icon = GameObject.Find("eq1Img");
         amount = 0;
         Icon.SetActive(false);
     }

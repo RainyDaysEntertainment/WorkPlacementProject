@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 
 public class equipSlot2 : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    GameObject slot;
-    GameObject icon;
+    public GameObject slot;
+    public GameObject icon;
     bool hover;
     void Start()
     {
-        slot = GameObject.Find("equip2");
-        icon = GameObject.Find("eq2img");
+        
     }
 
     void Update()

@@ -8,9 +8,9 @@ using UnityEngine.UI;
 
 public class consumableSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    GameObject slot;
-    GameObject icon;
-    TextMeshProUGUI amount;
+    public GameObject slot;
+    public GameObject icon;
+    public TextMeshProUGUI amount;
     consumable consumable;
     bool hover;
     GameObject tip;
@@ -18,9 +18,6 @@ public class consumableSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private void Start()
     {
-        slot = GameObject.Find("itemSlot");
-        icon = GameObject.Find("consumableIcon").GetComponent<Image>().gameObject;
-        amount = GameObject.Find("amountText").GetComponent<TextMeshProUGUI>();
         hover = false;
         tip = GameObject.Find("tip");
         tipDesc = GameObject.Find("tipDescription").GetComponent<TextMeshProUGUI>();  
@@ -38,7 +35,10 @@ public class consumableSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 Debug.Log("Use");
                 amount.text = (int.Parse(amount.text) - 1).ToString();
             }
+            if(Input.GetKeyDown(KeyCode.E))
+            {
 
+            }
         }
         if (hover == false)
         {
