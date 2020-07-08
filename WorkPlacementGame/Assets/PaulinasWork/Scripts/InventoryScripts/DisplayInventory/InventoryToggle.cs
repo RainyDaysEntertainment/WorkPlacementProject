@@ -8,6 +8,7 @@ public class InventoryToggle : MonoBehaviour
     public GameObject itemSlot;
     public GameObject eqSlot1;
     public GameObject eqSlot2;
+    public GameObject HUDimg;
     void Start()
     {
         inventoryPanel = GameObject.Find("Inv");
@@ -21,26 +22,35 @@ public class InventoryToggle : MonoBehaviour
         {
             bool isActive = inventoryPanel.activeSelf;
             inventoryPanel.SetActive(!isActive);
-        }  
 
-            if(Input.GetKeyDown(KeyCode.Keypad1))
+           
+        }
+
+        if(inventoryPanel.activeSelf)
+        {
+            Debug.Log("!");
+            if (Input.GetKeyDown(KeyCode.Y))
             {
-                itemSlot.transform.position = new Vector3(244, 42, 0);
-                eqSlot1.transform.position = new Vector3(-208,-417,0);
-                eqSlot2.transform.position = new Vector3(-12,-417,0);
+                itemSlot.transform.localPosition = new Vector3(244, 42, 0);
+                eqSlot1.transform.localPosition = new Vector3(-208, -417, 0);
+                eqSlot2.transform.localPosition = new Vector3(-12, -417, 0);
+                HUDimg = itemSlot;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad2))
+            if (Input.GetKeyDown(KeyCode.H))
             {
-                eqSlot1.transform.position = new Vector3(244, 42, 0);
-                itemSlot.transform.position = new Vector3(184, -417,0);
-                eqSlot2.transform.position = new Vector3(-12,-417,0);
+                eqSlot1.transform.localPosition = new Vector3(244, 42, 0);
+                itemSlot.transform.localPosition = new Vector3(184, -417, 0);
+                eqSlot2.transform.localPosition = new Vector3(-12, -417, 0);
+                HUDimg = eqSlot1;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad3))
+            if (Input.GetKeyDown(KeyCode.N))
             {
-                eqSlot2.transform.position = new Vector3(244, 42, 0);
-                itemSlot.transform.position = new Vector3(184, -417,0);
-                eqSlot1.transform.position = new Vector3(-208,-417,0);
+                eqSlot2.transform.localPosition = new Vector3(244, 42, 0);
+                itemSlot.transform.localPosition = new Vector3(184, -417, 0);
+                eqSlot1.transform.localPosition = new Vector3(-208, -417, 0);
+                HUDimg = eqSlot2;
             }
-        
+
+        }
     }
 }

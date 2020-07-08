@@ -27,11 +27,12 @@ public class consumableSetup : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {      
-
-        if(other.tag == "Consumable")
+    {
+        
+        if (other.tag == "Consumable")
         {
             amount++;
+            amtTxt.text = amount.ToString();
             Destroy(other.gameObject);          
         }
       

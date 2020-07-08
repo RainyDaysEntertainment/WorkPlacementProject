@@ -22,10 +22,7 @@ public class equipSlot1 : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if(hover == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-
-            }
+          
         }
         if(hover == false)
         {
