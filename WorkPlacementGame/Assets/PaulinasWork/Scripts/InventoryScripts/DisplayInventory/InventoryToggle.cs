@@ -9,11 +9,12 @@ public class InventoryToggle : MonoBehaviour
     public GameObject eqSlot1;
     public GameObject eqSlot2;
     public GameObject HUDimg;
+    GameObject img;
     void Start()
     {
         inventoryPanel = GameObject.Find("Inv");
         inventoryPanel.SetActive(false);
-        
+        img = GameObject.Find("slot2").GetComponentInChildren<GameObject>();
     }
 
     void Update()
@@ -22,8 +23,6 @@ public class InventoryToggle : MonoBehaviour
         {
             bool isActive = inventoryPanel.activeSelf;
             inventoryPanel.SetActive(!isActive);
-
-           
         }
 
         if(inventoryPanel.activeSelf)
@@ -34,21 +33,18 @@ public class InventoryToggle : MonoBehaviour
                 itemSlot.transform.localPosition = new Vector3(244, 42, 0);
                 eqSlot1.transform.localPosition = new Vector3(-208, -417, 0);
                 eqSlot2.transform.localPosition = new Vector3(-12, -417, 0);
-                HUDimg = itemSlot;
             }
             if (Input.GetKeyDown(KeyCode.H))
             {
                 eqSlot1.transform.localPosition = new Vector3(244, 42, 0);
                 itemSlot.transform.localPosition = new Vector3(184, -417, 0);
                 eqSlot2.transform.localPosition = new Vector3(-12, -417, 0);
-                HUDimg = eqSlot1;
             }
             if (Input.GetKeyDown(KeyCode.N))
             {
                 eqSlot2.transform.localPosition = new Vector3(244, 42, 0);
                 itemSlot.transform.localPosition = new Vector3(184, -417, 0);
                 eqSlot1.transform.localPosition = new Vector3(-208, -417, 0);
-                HUDimg = eqSlot2;
             }
 
         }
