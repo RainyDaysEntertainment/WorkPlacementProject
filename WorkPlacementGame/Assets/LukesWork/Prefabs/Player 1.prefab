@@ -9955,9 +9955,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632673bdb9076a46a2619db77f13711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  value: 3
   canIncrease: 1
   screenShake: {fileID: 0}
+  healthIcon1: {fileID: 0}
+  healthIcon2: {fileID: 0}
+  healthIcon3: {fileID: 0}
+  fullHealth: {fileID: 21300000, guid: 3b5e2958251f5254f94cc348dd6f1c69, type: 3}
+  emptyHealth: {fileID: 21300000, guid: e0cf46550d2a42d42ad0ec9f41d4e20f, type: 3}
+  shrinkEaseType: 16
+  expandEaseType: 30
 --- !u!1 &7806950535006043717
 GameObject:
   m_ObjectHideFlags: 0
@@ -9978,6 +9985,7 @@ GameObject:
   - component: {fileID: 6644030596348184606}
   - component: {fileID: 6644030596348184605}
   - component: {fileID: 1713871583631705672}
+  - component: {fileID: 237418376}
   m_Layer: 11
   m_Name: Player 1
   m_TagString: Player
@@ -10198,6 +10206,19 @@ MonoBehaviour:
     m_Bits: 256
   bomb: {fileID: 7542110400023269052, guid: f88f9c4f54cade347a11e031e4eee748, type: 3}
   obj: {fileID: 0}
+--- !u!114 &237418376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806950535006043717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beb3308bab3f1e4ebc5c1b99e4df186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 20, y: 1, z: 7}
 --- !u!1001 &7806950536502634157
 PrefabInstance:
   m_ObjectHideFlags: 0
