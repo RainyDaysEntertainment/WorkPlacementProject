@@ -1,140 +1,102 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float value;
-    float decreaseValue = 1f;
+    float increaseValue = 0.05f, decreaseValue = 0.5f;
 
     [HideInInspector]
-    public bool canIncrease = true, ease0, ease1, ease2, ease3;
+    public bool canIncrease = true;
 
-    GameObject player, health;
-    public GameObject healthIcon1, healthIcon2, healthIcon3;
-    public Sprite fullHeart, emptyHeart;
+    GameObject player, healthSlider;
 
     public ScreenShake screenShake;
 
-    public LeanTweenType easeType, easeType2;
+    public GameObject healthIcon1, healthIcon2, healthIcon3;
+    public Sprite fullHealth, emptyHealth;
 
-    AudioSource healSound;
+    public LeanTweenType shrinkEaseType, expandEaseType;
 
     void Start()
     {
         player = GameObject.Find("Player");
-        health = GameObject.Find("HealthIcons");
+        healthSlider = GameObject.Find("HealthSlider");
 
-        value = 3;
+        value = player.GetComponent<PlayerVariables>().health;
         screenShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
-
-        healSound = player.GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        //health.GetComponent<Slider>().value = value;
+        //healthSlider.GetComponent<Slider>().value = value;
 
         //if (value < healthSlider.GetComponent<Slider>().maxValue && canIncrease && Time.timeScale != 0)
         //{
         //    value += increaseValue;
         //}
-
-        if (value <= 0)
+         
+        switch (value)
         {
-            value = 0;
+            case 0:
+                healthIcon1.GetComponent<Image>().sprite = emptyHealth;
+                healthIcon2.GetComponent<Image>().sprite = emptyHealth;
+                healthIcon3.GetComponent<Image>().sprite = emptyHealth;
 
-            if (ease0)
-            {
-                healthIcon1.GetComponent<Image>().sprite = emptyHeart;
-                healthIcon2.GetComponent<Image>().sprite = emptyHeart;
-                healthIcon3.GetComponent<Image>().sprite = emptyHeart;
+                LeanTween.scale(healthIcon1, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setLoopOnce().setEase(shrinkEaseType);
+                LeanTween.scale(healthIcon2, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setLoopOnce().setEase(shrinkEaseType);
+                LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setLoopOnce().setEase(shrinkEaseType);
+                break;
 
-                LeanTween.scale(healthIcon1, new Vector3(0.1f, 0.1f, 0.1f), 0.2f).setEase(easeType2);
-                LeanTween.scale(healthIcon2, new Vector3(0.1f, 0.1f, 0.1f), 0.2f).setEase(easeType2);
-                LeanTween.scale(healthIcon3, new Vector3(0.1f, 0.1f, 0.1f), 0.2f).setEase(easeType2);
+            case 1:
+                healthIcon1.GetComponent<Image>().sprite = fullHealth;
+                healthIcon2.GetComponent<Image>().sprite = emptyHealth;
+                healthIcon3.GetComponent<Image>().sprite = emptyHealth;
 
-                ease0 = false;
-            }
+                LeanTween.scale(healthIcon2, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType).setRepeat(1);
+                LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType).setRepeat(1);
 
-            GameOverScreen();
-        }
-        else
-        {
-            ease0 = true;
-        }
+                LeanTween.scale(healthIcon1, new Vector3(1.2f, 1.2f, 1.2f), 0.4f).setEase(expandEaseType).setRepeat(1);
+                LeanTween.scale(healthIcon1, new Vector3(1, 1, 1), 0.4f).setDelay(0.4f).setEase(shrinkEaseType);
+                break;
 
-        if (value == 1)
-        {
-            if (ease1)
-            {
-                healthIcon1.GetComponent<Image>().sprite = fullHeart;
-                healthIcon2.GetComponent<Image>().sprite = emptyHeart;
-                healthIcon3.GetComponent<Image>().sprite = emptyHeart;
+            case 2:
+                healthIcon1.GetComponent<Image>().sprite = fullHealth;
+                healthIcon2.GetComponent<Image>().sprite = fullHealth;
+                healthIcon3.GetComponent<Image>().sprite = emptyHealth;
 
-                LeanTween.scale(healthIcon1, new Vector3(0.2f, 0.2f, 0.2f), 0.2f).setEase(easeType);
-                LeanTween.scale(healthIcon1, new Vector3(0.15f, 0.15f, 0.15f), 0.2f).setEase(easeType).setDelay(0.2f);
+                LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType).setLoopCount(0);
 
-                LeanTween.scale(healthIcon2, new Vector3(0.1f, 0.1f, 0.1f), 0.2f).setEase(easeType2);
-                LeanTween.scale(healthIcon3, new Vector3(0.1f, 0.1f, 0.1f), 0.2f).setEase(easeType2);
+                healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
 
-                ease1 = false;
-            }
-        }
-        else
-        {
-            ease1 = true;
-        }
+                LeanTween.scale(healthIcon2, new Vector3(1.2f, 1.2f, 1.2f), 0.4f).setEase(expandEaseType).setLoopCount(0);
+                LeanTween.scale(healthIcon2, new Vector3(1, 1, 1), 0.4f).setDelay(0.4f).setEase(shrinkEaseType);
+                break;
 
-        if (value == 2)
-        {
-            if (ease2)
-            {
-                healthIcon1.GetComponent<Image>().sprite = fullHeart;
-                healthIcon2.GetComponent<Image>().sprite = fullHeart;
-                healthIcon3.GetComponent<Image>().sprite = emptyHeart;
+            case 3:
+                healthIcon1.GetComponent<Image>().sprite = fullHealth;
+                healthIcon2.GetComponent<Image>().sprite = fullHealth;
+                healthIcon3.GetComponent<Image>().sprite = fullHealth;
 
-                LeanTween.scale(healthIcon2, new Vector3(0.2f, 0.2f, 0.2f), 0.2f).setEase(easeType);
-                LeanTween.scale(healthIcon2, new Vector3(0.15f, 0.15f, 0.15f), 0.2f).setEase(easeType).setDelay(0.2f);
+                healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                healthIcon2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
 
-                LeanTween.scale(healthIcon3, new Vector3(0.1f, 0.1f, 0.1f), 0.2f).setEase(easeType2);
-
-                ease2 = false;
-            }
-        }
-        else
-        {
-            ease2 = true;
+                LeanTween.scale(healthIcon3, new Vector3(1.2f, 1.2f, 1.2f), 0.4f).setLoopOnce().setEase(expandEaseType);
+                LeanTween.scale(healthIcon3, new Vector3(1, 1, 1), 0.4f).setDelay(0.4f).setLoopOnce();
+                break;
         }
 
         if (value >= 3)
         {
             value = 3;
-
-            if (ease3)
-            {
-                healthIcon1.GetComponent<Image>().sprite = fullHeart;
-                healthIcon2.GetComponent<Image>().sprite = fullHeart;
-                healthIcon3.GetComponent<Image>().sprite = fullHeart;
-
-                LeanTween.scale(healthIcon3, new Vector3(0.2f, 0.2f, 0.2f), 0.2f).setEase(easeType);
-                LeanTween.scale(healthIcon3, new Vector3(0.15f, 0.15f, 0.15f), 0.2f).setEase(easeType).setDelay(0.2f);
-
-                ease3 = false;
-            }
-        }
-        else
-        {
-            ease3 = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (value <= 0)
         {
-            value += 1;
-
-            if (value <= 3)
-                healSound.Play();
+            value = 0;
         }
     }
 
@@ -162,10 +124,5 @@ public class PlayerHealth : MonoBehaviour
     {
         canIncrease = true;
         CancelInvoke();
-    }
-
-    void GameOverScreen()
-    {
-
     }
 }

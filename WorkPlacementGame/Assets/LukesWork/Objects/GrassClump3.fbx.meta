@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f65ff74f6e6dbb344bd5905372bb269c
+=======
+guid: db04e46d314d88341823e656a72ddca0
+>>>>>>> origin/Luke
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
