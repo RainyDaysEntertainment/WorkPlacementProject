@@ -7,6 +7,10 @@ TagManager:
   - Grab
   - Slot
   - Enemy
+  - equip
+  - Tooltip
+  - Consumable
+  - eq2
   layers:
   - Default
   - TransparentFX
