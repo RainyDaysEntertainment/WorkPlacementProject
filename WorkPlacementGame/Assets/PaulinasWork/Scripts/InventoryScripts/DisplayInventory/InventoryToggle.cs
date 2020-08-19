@@ -30,21 +30,21 @@ public class InventoryToggle : MonoBehaviour
             Debug.Log("!");
             if (Input.GetKeyDown(KeyCode.Y))
             {
-                itemSlot.transform.localPosition = new Vector3(244, 42, 0);
-                eqSlot1.transform.localPosition = new Vector3(-208, -417, 0);
-                eqSlot2.transform.localPosition = new Vector3(-12, -417, 0);
+                itemSlot.transform.localPosition = new Vector3(-132, 42, 0);
+                eqSlot1.transform.localPosition = new Vector3(-225, -444, 0);
+                eqSlot2.transform.localPosition = new Vector3(-105, -440, 0);
             }
             if (Input.GetKeyDown(KeyCode.H))
             {
-                eqSlot1.transform.localPosition = new Vector3(244, 42, 0);
-                itemSlot.transform.localPosition = new Vector3(184, -417, 0);
-                eqSlot2.transform.localPosition = new Vector3(-12, -417, 0);
+                eqSlot1.transform.localPosition = new Vector3(-132, 42, 0);
+                itemSlot.transform.localPosition = new Vector3(18, -437, 0);
+                eqSlot2.transform.localPosition = new Vector3(-105, -440, 0);
             }
             if (Input.GetKeyDown(KeyCode.N))
             {
-                eqSlot2.transform.localPosition = new Vector3(244, 42, 0);
-                itemSlot.transform.localPosition = new Vector3(184, -417, 0);
-                eqSlot1.transform.localPosition = new Vector3(-208, -417, 0);
+                eqSlot2.transform.localPosition = new Vector3(-132, 42, 0);
+                itemSlot.transform.localPosition = new Vector3(18, -437, 0);
+                eqSlot1.transform.localPosition = new Vector3(-225, -444, 0);
             }
 
         }
