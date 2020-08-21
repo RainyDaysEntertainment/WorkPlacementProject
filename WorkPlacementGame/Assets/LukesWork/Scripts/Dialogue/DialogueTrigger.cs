@@ -6,7 +6,17 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     public DialogueManagerScript manager;
-    public bool input;
+    public bool input, activeQuest = false;
+
+    public QuestGiver NPC;
+
+    private void Start()
+    {
+        activeQuest = false;
+
+        manager = GameObject.Find("DialogueManager").GetComponent<DialogueManagerScript>();
+        NPC = gameObject.GetComponentInParent<QuestGiver>();
+    }
 
     private void Update()
     {
@@ -28,6 +38,15 @@ public class DialogueTrigger : MonoBehaviour
         {
             input = false;
             TriggerDialogue();
+        }
+
+        if (activeQuest == false && Input.GetKeyDown(KeyCode.E))
+        {
+            NPC.PopupQuestMessage();
+            activeQuest = true;
+
+            //Destroy(NPC.GetComponent<DialogueManagerScript>());
+            //gameObject.AddComponent<DialogueManagerScript>();
         }
     }
 

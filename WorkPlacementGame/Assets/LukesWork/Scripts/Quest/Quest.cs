@@ -10,5 +10,5 @@ public class Quest
     public bool isComplete = false;
 
     public string QuestTitle, QuestDescription;
-    public Sprite QuestImage, QuestBack;
+    public Sprite QuestImage, QuestImageSilhouette, QuestBack;
 }

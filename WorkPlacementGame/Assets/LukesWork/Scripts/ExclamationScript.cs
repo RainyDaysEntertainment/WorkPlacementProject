@@ -25,6 +25,9 @@ public class ExclamationScript : MonoBehaviour
     {
         if (other.CompareTag("Pickup"))
             image.SetActive(true);
+
+        if (Input.GetKey(KeyCode.E))
+            image.SetActive(false);
     }
 
     private void OnTriggerExit(Collider other)

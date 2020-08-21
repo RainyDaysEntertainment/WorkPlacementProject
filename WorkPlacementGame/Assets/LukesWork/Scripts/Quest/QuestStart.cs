@@ -14,9 +14,9 @@ public class QuestStart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void OnEnable()
     {
         canvas = GameObject.Find("UICanvas");
-        i = (canvas.transform.childCount - 5) * 50;
+        i = ((canvas.transform.childCount - 5) * 80) + 20;
 
-        gameObject.transform.position = new Vector3(Screen.width * 0.86f, Screen.height + 100, 0);
+        gameObject.transform.position = new Vector3(Screen.width * 0.82f, Screen.height + 100, 0);
         LeanTween.moveX(gameObject, (Screen.width * 1.105f), 0.5f).setEase(LeanTweenType.easeOutSine).setDelay(4);
         LeanTween.moveY(gameObject, Screen.height - i, 1.25f).setEase(LeanTweenType.easeOutSine);
     }
@@ -24,6 +24,15 @@ public class QuestStart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void Update()
     {
         gameObject.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = q.QuestBack;
+
+        if (q.isComplete)
+        {
+            gameObject.transform.GetChild(2).gameObject.GetComponent<Image>().sprite = q.QuestImage;
+        }
+        else
+        {
+            gameObject.transform.GetChild(2).gameObject.GetComponent<Image>().sprite = q.QuestImageSilhouette;
+        }
     }
 
     public void GetQuest(Quest quest)
@@ -33,7 +42,7 @@ public class QuestStart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        LeanTween.moveX(gameObject, (Screen.width * 0.86f), 0.5f).setEase(LeanTweenType.easeOutSine);
+        LeanTween.moveX(gameObject, (Screen.width * 0.82f), 0.5f).setEase(LeanTweenType.easeOutSine);
         LeanTween.moveY(gameObject, Screen.height - i, 0.5f).setEase(LeanTweenType.easeOutSine);
     }
 

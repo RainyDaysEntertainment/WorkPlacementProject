@@ -8,13 +8,18 @@ public class QuestGiver : MonoBehaviour
 {
     public Quest quest;
 
-    public GameObject questPopup, canvas;
+    public GameObject questPopup, canvas, dialogueTrigger;
 
     public int i;
 
     public Sprite incompleteImage, completeImage;
 
     //public TextMeshPro title, description;
+
+    private void Start()
+    {
+        //dialogueTrigger = GameObject.Find
+    }
 
     private void Update()
     {
@@ -49,5 +54,10 @@ public class QuestGiver : MonoBehaviour
 
         questObj.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().text = quest.QuestTitle;
         questObj.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = quest.QuestDescription;
+
+        //GameObject dialogue = gameObject.transform.GetChild(0).gameObject;
+
+        //Destroy(dialogue.GetComponent<DialogueManagerScript>());
+        //dialogue.AddComponent<DialogueManagerScript>();
     }
 }

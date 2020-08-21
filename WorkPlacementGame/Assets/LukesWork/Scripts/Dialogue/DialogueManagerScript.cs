@@ -15,7 +15,7 @@ public class DialogueManagerScript : MonoBehaviour
 
     private Queue<string> statements;
 
-    public bool statementEndBool = true;
+    public bool statementEndBool = false, endedDialogue = false;
 
     void Start()
     {
@@ -23,6 +23,8 @@ public class DialogueManagerScript : MonoBehaviour
         statementEndBool = true;
         LeanTween.rotateZ(nameBackground, 10, 0.8f).setEase(rotateType).setLoopPingPong();
         LeanTween.moveX(arrow, arrow.transform.position.x + 8, 0.65f).setEase(arrowType).setLoopPingPong();
+
+        endedDialogue = false;
     }
 
     private void Update()
@@ -47,6 +49,8 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        endedDialogue = false;
+
         LeanTween.moveY(dialogueBox, Screen.height / 7, 0.8f).setEase(easeType);
 
         nameText.text = dialogue.characterName;
@@ -71,6 +75,8 @@ public class DialogueManagerScript : MonoBehaviour
             EndDialogue();
             return;
         }
+
+        endedDialogue = false;
 
         statementEndBool = false;
 
@@ -102,14 +108,19 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void EndDialogue()
     {
+        endedDialogue = true;
+
         LeanTween.moveY(dialogueBox, -Screen.height / 6, 0.8f).setEase(easeType);
         GameObject.Find("DialogueTrigger").GetComponent<DialogueTrigger>().enabled = true;
+
         InvokeRepeating("BoolSwitch", 0.8f, 2000);
     }
 
     void BoolSwitch()
     {
+        endedDialogue = false;
         statementEndBool = true;
+
         CancelInvoke("BoolSwitch");
     }
 }
