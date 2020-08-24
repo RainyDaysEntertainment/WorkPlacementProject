@@ -49,8 +49,6 @@ public class DialogueManagerScript : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        endedDialogue = false;
-
         LeanTween.moveY(dialogueBox, Screen.height / 7, 0.8f).setEase(easeType);
 
         nameText.text = dialogue.characterName;

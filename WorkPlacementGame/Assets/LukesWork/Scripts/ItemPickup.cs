@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    public string npcName;
     public float radius = 2f, dis;
-    public QuestGiver questGiver;
+    QuestGiver questGiver;
     Quest item;
     public Transform player;
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
+        questGiver = GameObject.Find(npcName).GetComponent<QuestGiver>();
+
         item = questGiver.quest;
     }
 
@@ -32,10 +35,9 @@ public class ItemPickup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            bool wasPickedUp = QuestInv.instance.Add(item);
+            QuestInv.instance.Add(item);
 
-            if (wasPickedUp)
-                Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

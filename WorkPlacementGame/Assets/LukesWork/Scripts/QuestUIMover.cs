@@ -17,11 +17,11 @@ public class QuestUIMover : MonoBehaviour
 
         if (isShowing)
         {
-            LeanTween.moveX(gameObject, (Screen.width * 0.84f), 0.25f).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveX(gameObject, (Screen.width * 0.84f), 0.6f).setEase(LeanTweenType.easeOutBounce);
         }
         else
         {
-            LeanTween.moveX(gameObject, (Screen.width * 1.175f), 0.25f).setEase(LeanTweenType.easeOutSine);
+            LeanTween.moveX(gameObject, (Screen.width * 1.175f), 0.6f).setEase(LeanTweenType.easeOutBounce);
         }
     }
 }

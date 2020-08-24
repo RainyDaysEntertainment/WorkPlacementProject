@@ -27,15 +27,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8556660978847653374}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.105606, y: 1.06, z: 13.89}
-  m_LocalScale: {x: 1.0236487, y: 2.263386, z: 1.0236487}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
+  m_LocalPosition: {x: 28.677969, y: -3.331271e-17, z: 11.500271}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children:
   - {fileID: 8556660979680081928}
   - {fileID: 8556660979326973336}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &8556660978847653361
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8556660978847653374}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2534964839176971238, guid: 9b5d28675090715488f27ee5ca6d4ee5, type: 3}
 --- !u!23 &8556660978847653360
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.025199562, y: 0.025861837, z: 0.059399284}
+  m_Center: {x: -0.000001937151, y: -0.000016598493, z: 0.029672612}
 --- !u!114 &1511810578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,14 +110,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isComplete: 0
+    itemReturned: 0
     QuestTitle: Find my shoe!
     QuestDescription: NPC wants you to find their shoe. They believe it is near a
       tree.
-    QuestImage: {fileID: 0}
+    QuestImage: {fileID: 21300000, guid: fcbcbc404be6a46438da137fbcd41810, type: 3}
+    QuestImageSilhouette: {fileID: 21300000, guid: 16e3dd292b26a404eb6a36c15eab6b71,
+      type: 3}
     QuestBack: {fileID: 0}
   questPopup: {fileID: 2044778442997932765, guid: 60e1a775c807d364980db19ed011e659,
     type: 3}
   canvas: {fileID: 0}
+  dialogueTrigger: {fileID: 0}
   i: 0
   incompleteImage: {fileID: 21300000, guid: cc4db78046ae87847a9393364824855d, type: 3}
   completeImage: {fileID: 21300000, guid: 8678635a3d42c144981a1bbcf952f843, type: 3}
@@ -149,18 +153,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8556660979326973319}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0764}
+  m_LocalScale: {x: 0.02, y: 0.04, z: 0.01}
   m_Children:
   - {fileID: 8556660979666846361}
   m_Father: {fileID: 8556660978847653362}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.519}
-  m_SizeDelta: {x: 1.5, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8556660979326973339
 Canvas:
@@ -245,8 +249,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.9
+  m_Center: {x: 0, y: -2, z: 0}
 --- !u!1 &8556660979666846360
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,13 +309,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 0d20b6e8c8eff584fa6978c7f8b82121, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a7711ea273223964480909ca1276f344, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -377,7 +381,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.075
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8556660979680081929
 MonoBehaviour:
@@ -393,13 +397,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     nameColour: {r: 1, g: 0.8783932, b: 0.4764151, a: 1}
-    characterName: Fella
+    characterName: Carla
     statements:
-    - Hello, this is a dialogue test. Hello, this is a dialogue test. Hello, this
-      is a dialogue test.
-    - Goodbye, blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-      blah blah blah blah blah blah blah blah
+    - Hey Bea! I seemed to have lost my shoe someplace around here... I've been looking
+      forever! The grass tickles!
+    - I think it might have been when I was snoozing under a tree... maybe? Hey,
+      don't judge me, I'm forgetful...
+  finishedDialogue:
+    nameColour: {r: 0, g: 0, b: 0, a: 0}
+    characterName: 
+    statements:
+    - Oh THANK YOU SO MUCH!!! I've missed you, shoe. The ants were buggin' me.
   manager: {fileID: 0}
   input: 0
   activeQuest: 0
   NPC: {fileID: 0}
+  questInv: {fileID: 0}

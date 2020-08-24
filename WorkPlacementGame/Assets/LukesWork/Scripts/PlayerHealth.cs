@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float value;
-    float increaseValue = 0.05f, decreaseValue = 0.5f;
+    public float hValue;
+    float decreaseValue = 1f;
 
     [HideInInspector]
     public bool canIncrease = true;
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         player = GameObject.Find("Player");
         healthSlider = GameObject.Find("HealthSlider");
 
-        value = player.GetComponent<PlayerVariables>().health;
+        hValue = player.GetComponent<PlayerVariables>().health;
         screenShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
     }
 
@@ -38,65 +38,88 @@ public class PlayerHealth : MonoBehaviour
         //{
         //    value += increaseValue;
         //}
-         
-        switch (value)
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            case 0:
-                healthIcon1.GetComponent<Image>().sprite = emptyHealth;
-                healthIcon2.GetComponent<Image>().sprite = emptyHealth;
-                healthIcon3.GetComponent<Image>().sprite = emptyHealth;
-
-                LeanTween.scale(healthIcon1, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setLoopOnce().setEase(shrinkEaseType);
-                LeanTween.scale(healthIcon2, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setLoopOnce().setEase(shrinkEaseType);
-                LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setLoopOnce().setEase(shrinkEaseType);
-                break;
-
-            case 1:
-                healthIcon1.GetComponent<Image>().sprite = fullHealth;
-                healthIcon2.GetComponent<Image>().sprite = emptyHealth;
-                healthIcon3.GetComponent<Image>().sprite = emptyHealth;
-
-                LeanTween.scale(healthIcon2, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType).setRepeat(1);
-                LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType).setRepeat(1);
-
-                LeanTween.scale(healthIcon1, new Vector3(1.2f, 1.2f, 1.2f), 0.4f).setEase(expandEaseType).setRepeat(1);
-                LeanTween.scale(healthIcon1, new Vector3(1, 1, 1), 0.4f).setDelay(0.4f).setEase(shrinkEaseType);
-                break;
-
-            case 2:
-                healthIcon1.GetComponent<Image>().sprite = fullHealth;
-                healthIcon2.GetComponent<Image>().sprite = fullHealth;
-                healthIcon3.GetComponent<Image>().sprite = emptyHealth;
-
-                LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType).setLoopCount(0);
-
-                healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-
-                LeanTween.scale(healthIcon2, new Vector3(1.2f, 1.2f, 1.2f), 0.4f).setEase(expandEaseType).setLoopCount(0);
-                LeanTween.scale(healthIcon2, new Vector3(1, 1, 1), 0.4f).setDelay(0.4f).setEase(shrinkEaseType);
-                break;
-
-            case 3:
-                healthIcon1.GetComponent<Image>().sprite = fullHealth;
-                healthIcon2.GetComponent<Image>().sprite = fullHealth;
-                healthIcon3.GetComponent<Image>().sprite = fullHealth;
-
-                healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-                healthIcon2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-
-                LeanTween.scale(healthIcon3, new Vector3(1.2f, 1.2f, 1.2f), 0.4f).setLoopOnce().setEase(expandEaseType);
-                LeanTween.scale(healthIcon3, new Vector3(1, 1, 1), 0.4f).setDelay(0.4f).setLoopOnce();
-                break;
+            Value += 1;
         }
 
-        if (value >= 3)
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            value = 3;
+            Value -= 1;
         }
 
-        if (value <= 0)
+        if (hValue >= 3)
         {
-            value = 0;
+            hValue = 3;
+        }
+
+        if (hValue <= 0)
+        {
+            hValue = 0;
+        }
+    }
+
+    public float Value
+    {
+        get { return hValue; }
+        set
+        {
+            if (value == hValue)
+                return;
+
+            hValue = value;
+
+
+            switch (hValue)
+            {
+                case 0:
+                    healthIcon1.GetComponent<Image>().sprite = emptyHealth;
+                    healthIcon2.GetComponent<Image>().sprite = emptyHealth;
+                    healthIcon3.GetComponent<Image>().sprite = emptyHealth;
+
+                    LeanTween.scale(healthIcon1, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+                    LeanTween.scale(healthIcon2, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+                    LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+                    break;
+
+                case 1:
+                    healthIcon1.GetComponent<Image>().sprite = fullHealth;
+                    healthIcon2.GetComponent<Image>().sprite = emptyHealth;
+                    healthIcon3.GetComponent<Image>().sprite = emptyHealth;
+
+                    LeanTween.scale(healthIcon2, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+                    LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+
+                    LeanTween.scale(healthIcon1, new Vector3(1.3f, 1.3f, 1.3f), 0.4f).setEase(expandEaseType);
+                    LeanTween.scale(healthIcon1, new Vector3(1, 1, 1), 0.2f).setDelay(0.4f).setEase(shrinkEaseType);
+                    break;
+
+                case 2:
+                    healthIcon1.GetComponent<Image>().sprite = fullHealth;
+                    healthIcon2.GetComponent<Image>().sprite = fullHealth;
+                    healthIcon3.GetComponent<Image>().sprite = emptyHealth;
+
+                    LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+
+                    //healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+
+                    LeanTween.scale(healthIcon2, new Vector3(1.3f, 1.3f, 1.3f), 0.4f).setEase(expandEaseType);
+                    LeanTween.scale(healthIcon2, new Vector3(1, 1, 1), 0.2f).setDelay(0.4f).setEase(shrinkEaseType);
+                    break;
+
+                case 3:
+                    healthIcon1.GetComponent<Image>().sprite = fullHealth;
+                    healthIcon2.GetComponent<Image>().sprite = fullHealth;
+                    healthIcon3.GetComponent<Image>().sprite = fullHealth;
+
+                    //healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                    //healthIcon2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+
+                    LeanTween.scale(healthIcon3, new Vector3(1.3f, 1.3f, 1.3f), 0.4f).setEase(expandEaseType);
+                    LeanTween.scale(healthIcon3, new Vector3(1, 1, 1), 0.2f).setDelay(0.4f);
+                    break;
+            }
         }
     }
 
@@ -106,7 +129,7 @@ public class PlayerHealth : MonoBehaviour
         {
             CancelInvoke();
             canIncrease = false;
-            value -= decreaseValue;
+            Value -= decreaseValue;
             InvokeRepeating("Increase", 2, 2000);
 
             StartCoroutine(screenShake.Shake(0.15f, 0.2f));

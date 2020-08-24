@@ -15,7 +15,7 @@ public class PlayerVariables : MonoBehaviour
     public void SavePlayer()
     {
         level = SceneManager.GetActiveScene().buildIndex;
-        health = playerHealth.value;
+        health = playerHealth.hValue;
         SaveSystem.SavePlayer(this);
     }
 
@@ -35,7 +35,7 @@ public class PlayerVariables : MonoBehaviour
 
         level = data.level;
         health = data.health;
-        playerHealth.value = health;
+        playerHealth.hValue = health;
 
         Vector3 position;
         position.x = data.position[0];

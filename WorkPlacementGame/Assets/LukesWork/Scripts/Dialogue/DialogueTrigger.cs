@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    public Dialogue dialogue, finishedDialogue;
     public DialogueManagerScript manager;
     public bool input, activeQuest = false;
 
     public QuestGiver NPC;
+    Quest quest;
+    public QuestInv questInv;
 
     private void Start()
     {
@@ -16,6 +18,9 @@ public class DialogueTrigger : MonoBehaviour
 
         manager = GameObject.Find("DialogueManager").GetComponent<DialogueManagerScript>();
         NPC = gameObject.GetComponentInParent<QuestGiver>();
+        quest = NPC.quest;
+
+        questInv = GameObject.Find("GameManager").GetComponent<QuestInv>();
     }
 
     private void Update()
@@ -32,9 +37,25 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManagerScript>().StartDialogue(dialogue);
     }
 
+    public void TriggerCompletedDialogue()
+    {
+        finishedDialogue.nameColour = dialogue.nameColour;
+        finishedDialogue.characterName = dialogue.characterName;
+
+        FindObjectOfType<DialogueManagerScript>().StartDialogue(finishedDialogue);
+
+        if (quest.isComplete)
+            questInv.Remove(quest);
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (input && other.CompareTag("Player"))
+        if (input && other.CompareTag("Player") && quest.isComplete)
+        {
+            input = false;
+            TriggerCompletedDialogue();
+        }
+        else if (input && other.CompareTag("Player"))
         {
             input = false;
             TriggerDialogue();
