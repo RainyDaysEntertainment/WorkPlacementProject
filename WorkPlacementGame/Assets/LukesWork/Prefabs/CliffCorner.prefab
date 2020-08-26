@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7667030602497004261}
   - component: {fileID: 1674711278916806867}
   - component: {fileID: 4900281854653289514}
+  - component: {fileID: 3153054952317505803}
   m_Layer: 0
   m_Name: CliffCorner
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3153054952317505803
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6646638426474209526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: 62190e1ecd8ffc84d992d5b435210ef2, type: 3}
