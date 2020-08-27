@@ -19,6 +19,7 @@ public class QuestGiver : MonoBehaviour
     private void Start()
     {
         //dialogueTrigger = GameObject.Find
+        canvas = GameObject.Find("UICanvas");
     }
 
     private void Update()

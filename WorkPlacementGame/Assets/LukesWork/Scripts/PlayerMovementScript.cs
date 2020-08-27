@@ -55,12 +55,12 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            SceneManager.LoadScene("L_Testing_Scene", LoadSceneMode.Additive);
+            SceneManager.LoadScene("MainScene", LoadSceneMode.Additive);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            //rb.AddForce((Vector3.up * 6000) + (transform.TransformDirection(Vector3.forward) * 1000));
+            rb.AddForce((Vector3.up * 6000) + (transform.TransformDirection(Vector3.forward) * 1000));
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))

@@ -25,6 +25,7 @@ public class DialogueManagerScript : MonoBehaviour
         LeanTween.moveX(arrow, arrow.transform.position.x + 8, 0.65f).setEase(arrowType).setLoopPingPong();
 
         endedDialogue = false;
+
     }
 
     private void Update()

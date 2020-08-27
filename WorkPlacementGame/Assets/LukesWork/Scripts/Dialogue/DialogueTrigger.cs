@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     public QuestGiver NPC;
     Quest quest;
     public QuestInv questInv;
+    npcAI ai;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class DialogueTrigger : MonoBehaviour
         quest = NPC.quest;
 
         questInv = GameObject.Find("GameManager").GetComponent<QuestInv>();
+        ai = gameObject.GetComponentInParent<npcAI>();
     }
 
     private void Update()
@@ -59,6 +61,12 @@ public class DialogueTrigger : MonoBehaviour
         {
             input = false;
             TriggerDialogue();
+        }
+
+        if (input == false)
+        {
+            ai.pauseTime = 2;
+            ai.moveTime = 0;
         }
 
         if (activeQuest == false && Input.GetKeyDown(KeyCode.E))

@@ -4790,6 +4790,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &190494144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5398109576597428191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216d49936bf148b40af8e93d4a302785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rot: 0
 --- !u!1 &5582445540861436244
 GameObject:
   m_ObjectHideFlags: 0
@@ -4799,9 +4812,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3970938150563244928}
+  - component: {fileID: 896972556}
+  - component: {fileID: 896972555}
   m_Layer: 0
   m_Name: PickupChest
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4823,6 +4838,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &896972556
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582445540861436244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &896972555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582445540861436244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f3c364b1defa64a9c3bfa9919fb13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: NPC (1)
+  radius: 1.5
+  dis: 0
+  player: {fileID: 0}
 --- !u!1 &7635938510122302970
 GameObject:
   m_ObjectHideFlags: 0
@@ -9712,6 +9756,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d47541b79cc13f64198377f2cf42f64c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adbc157cdde5160499f46ee3e72145a2, type: 3}
+--- !u!1 &5398109576597428191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: adbc157cdde5160499f46ee3e72145a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4163609850153406166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8985430951000516044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: adbc157cdde5160499f46ee3e72145a2,
