@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class npcAI : MonoBehaviour
 {
-    public float speed, moveTime, pauseTime, startMoveTime, startPauseTime, lerpSpeed, randomChangeDirection, startRandomChangeDirection;
+    public float speed, moveTime, pauseTime, startMoveTime, startPauseTime, lerpSpeed, lastDis = 100, curDistance;
     public Transform[] pathPoints;
     public int randomPoint;
     public GameObject pathParent;
-
+    public Vector3 distance;
     Vector3 moveTo;
 
     public Animator anim;
@@ -28,24 +28,14 @@ public class npcAI : MonoBehaviour
             pathPoints[i] = pathParent.transform.GetChild(i);
         }
 
+        randomPoint = FindInitialPoint();
+
         //InvokeRepeating("FindOtherNPCs", 0, 0.1f);
     }
 
     void Update()
     {
         moveTime -= Time.deltaTime;
-        randomChangeDirection -= Time.deltaTime;
-
-        if (randomChangeDirection < 0)
-        {
-            int r = randomPoint;
-            int p = Random.Range(0, 2) * 2 - 1;
-            randomPoint = r + p;
-
-            startRandomChangeDirection = Random.Range(45, 360);
-
-            randomChangeDirection = startRandomChangeDirection;
-        }
 
         if (moveTime > 0)
         {
@@ -101,5 +91,25 @@ public class npcAI : MonoBehaviour
                 //transform.position = Vector3.MoveTowards(transform.position, transform.position - g.transform.position, speed * Time.deltaTime);
             }
         }
+    }
+
+    int FindInitialPoint()
+    {
+        int closest = 0;
+
+        for (int i = 0; i < pathPoints.Length; i++)
+        {
+            distance = pathPoints[i].position - transform.position;
+            curDistance = distance.sqrMagnitude;
+
+            if (curDistance < lastDis)
+            {
+                closest = i;
+            }
+
+            lastDis = curDistance;
+        }
+
+        return closest;
     }
 }
