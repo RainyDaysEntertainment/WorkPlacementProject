@@ -9,15 +9,30 @@ EditorBuildSettings:
     path: Assets/PaulinasWork/Scenes/MainMenu.unity
     guid: c3f92534499b8634bb1e898a4d693867
   - enabled: 1
+    path: Assets/LukesWork/Scenes/Player Scene.unity
+    guid: f1d9c5bcc3ee07f4fa00909a209161ad
+  - enabled: 1
     path: Assets/MainScene/MainScene.unity
     guid: 2c319cdcde4af924d842c0b64269acb0
   - enabled: 1
-    path: Assets/PaulinasWork/Scenes/sampleSceneP.unity
-    guid: 56f393c37281fc44d94532d491fe2a66
+    path: Assets/PaulinasWork/Scenes/house1P.unity
+    guid: ba0754eac100d53409825ccb8e3c4540
   - enabled: 1
-    path: Assets/LukesWork/L_Testing_Scene.unity
-    guid: 3c791f0344f681243b2e2ce71414e11b
+    path: Assets/PaulinasWork/Scenes/house2P.unity
+    guid: b71cc82c4033b654298aa1c8ea4e8df8
   - enabled: 1
-    path: Assets/LukesWork/Scenes/Player Scene.unity
-    guid: f1d9c5bcc3ee07f4fa00909a209161ad
+    path: Assets/PaulinasWork/Scenes/house3P.unity
+    guid: 42dd43f2d07388f43aaa7e7bc530744a
+  - enabled: 1
+    path: Assets/PaulinasWork/Scenes/house4P.unity
+    guid: a173a93e164cd0c4cb3788d352d14859
+  - enabled: 1
+    path: Assets/PaulinasWork/Scenes/house5P.unity
+    guid: 9576e3945bd4527429c04805ff7bf874
+  - enabled: 1
+    path: Assets/PaulinasWork/Scenes/cave1P.unity
+    guid: fb396cc09a68e41499c270377b455c61
+  - enabled: 1
+    path: Assets/PaulinasWork/Scenes/cave2P.unity
+    guid: c467a4dd6902c3b4bb8c6a467cfb60ff
   m_configObjects: {}

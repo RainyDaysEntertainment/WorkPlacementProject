@@ -8,10 +8,8 @@ public class SceneSwitcher : MonoBehaviour
 {
     public Animator transition;
     private float transitionTime = 1f;
-    public int levelNum = 2;
     public Vector3 position;
-    public GameObject player;
-    OnSceneLoad onLoad;
+    public GameObject clouds, filter, cam;
 
     public void Update()
     {
@@ -23,30 +21,43 @@ public class SceneSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-            LoadScene();
-    }
-
-    public void LoadScene()
-    {
-        StartCoroutine(LoadSceneIEnum(levelNum));
+        if (other.CompareTag("SceneSwitcher"))
+        {
+            StartCoroutine(LoadSceneIEnum(other.gameObject.GetComponent<SceneNum>().sceneNumber));
+            position = other.gameObject.GetComponent<SceneNum>().position;
+        }
     }
 
     IEnumerator LoadSceneIEnum(int levelNumber)
     {
         transition.SetTrigger("Start");
 
-        onLoad.position = position;
-        GameObject.Find("Player").GetComponent<OnSceneLoad>().position = onLoad.position;
-
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene("Player Scene", LoadSceneMode.Single);
-        SceneManager.LoadScene(levelNumber, LoadSceneMode.Additive);
-    }
+        cam.SetActive(false);
+        //clouds.SetActive(false);
+        //filter.SetActive(false);
 
-    GameObject GetPlayer()
-    {
-        return GameObject.Find("Player");
+        if (levelNumber == 2)
+        {
+            cam.SetActive(true);
+            //clouds.SetActive(true);
+            //filter.SetActive(true);
+        }
+
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+
+            if (scene.name != "Player Scene")
+            {
+                SceneManager.UnloadSceneAsync(scene);
+            }
+
+            
+        }
+
+        SceneManager.LoadScene(levelNumber, LoadSceneMode.Additive);
+        transform.position = position;
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1986195615561901169
 Transform:
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986195615561901175}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000014901159}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 23.636, y: 5.13, z: 7.73}
   m_LocalScale: {x: 116.361176, y: 69.261, z: 69.261}
   m_Children:
@@ -32,7 +32,7 @@ Transform:
   - {fileID: 6839515024217142026}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!65 &1986195615561901168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlagPole
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3e876a94d5995f84b806d85d23efd223,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e876a94d5995f84b806d85d23efd223, type: 3}
 --- !u!4 &6839515023134338629 stripped
@@ -231,7 +236,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0a4a926bafb7cd34393570c40273b922,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a4a926bafb7cd34393570c40273b922, type: 3}

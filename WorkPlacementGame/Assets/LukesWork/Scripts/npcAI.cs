@@ -4,37 +4,40 @@ using UnityEngine;
 
 public class npcAI : MonoBehaviour
 {
-    public float speed, moveTime, pauseTime, startMoveTime, startPauseTime, lerpSpeed, lastDis = 100, curDistance;
+    public float speed, moveTime, pauseTime, startPauseTime, lerpSpeed, lastDis = 100;
     public Transform[] pathPoints;
     public int randomPoint;
     public GameObject pathParent;
-    public Vector3 distance;
     Vector3 moveTo;
 
     public Animator anim;
 
     void Start()
     {
-        moveTime = startMoveTime;
-        speed = Random.Range(1.2f, 2.5f);
-        pauseTime = 1;
+        speed = Random.Range(0.5f, 1.9f);
+        pauseTime = 0;
 
         anim = transform.GetComponentInChildren<Animator>();
 
         pathParent = GameObject.Find("PathPoints");
+
+        pathPoints = new Transform[pathParent.transform.childCount];
 
         for (int i = 0; i < pathParent.transform.childCount; i++)
         {
             pathPoints[i] = pathParent.transform.GetChild(i);
         }
 
-        randomPoint = FindInitialPoint();
-
         //InvokeRepeating("FindOtherNPCs", 0, 0.1f);
     }
 
     void Update()
     {
+        if (randomPoint == 0)
+        {
+            randomPoint = FindInitialPoint();
+        }
+
         moveTime -= Time.deltaTime;
 
         if (moveTime > 0)
@@ -49,7 +52,7 @@ public class npcAI : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation,
                 rot, 0.08f);
 
-            if (Vector3.Distance(transform.position, pathPoints[randomPoint].position) < 0.25f)
+            if (Vector3.Distance(transform.position, pathPoints[randomPoint].position) < 0.75f)
             {
                 int r = randomPoint;
                 int p = Random.Range(0, 2) * 2 - 1;
@@ -63,51 +66,50 @@ public class npcAI : MonoBehaviour
 
             if (pauseTime <= 0)
             {
-                moveTime = Random.Range(3, 240);
-                speed = Random.Range(1.2f, 2.5f);
-                startPauseTime = Random.Range(20, 80);
+                moveTime = Random.Range(3.5f, 60.5f);
+                speed = Random.Range(0.5f, 1.9f);
+                startPauseTime = Random.Range(10.5f, 60.5f);
 
-                int r = randomPoint;
-                int p = Random.Range(0, 2) * 2 - 1;
-                randomPoint = r + p;
+                //int r = randomPoint;
+                //int p = Random.Range(0, 2) * 2 - 1;
+                //randomPoint = r + p;
 
                 pauseTime = startPauseTime;
             }
         }
 
-        if (randomPoint <= 0)
+        if (randomPoint < 1)
             randomPoint = pathPoints.Length - 1;
 
         if (randomPoint == pathPoints.Length)
             randomPoint = 0;
     }
 
-    void FindOtherNPCs()
-    {
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC"))
-        {
-            if (Vector3.Distance(transform.position, g.transform.position) < 2f)
-            {
-                //transform.position = Vector3.MoveTowards(transform.position, transform.position - g.transform.position, speed * Time.deltaTime);
-            }
-        }
-    }
+    //void FindOtherNPCs()
+    //{
+    //    foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC"))
+    //    {
+    //        if (Vector3.Distance(transform.position, g.transform.position) < 2f)
+    //        {
+    //            transform.position = Vector3.MoveTowards(transform.position, transform.position - g.transform.position, speed * Time.deltaTime);
+    //        }
+    //    }
+    //}
 
     int FindInitialPoint()
     {
-        int closest = 0;
+        int closest = 30;
 
         for (int i = 0; i < pathPoints.Length; i++)
         {
-            distance = pathPoints[i].position - transform.position;
-            curDistance = distance.sqrMagnitude;
+            Vector3 distance = pathPoints[i].transform.position - transform.position;
+            float curDistance = distance.sqrMagnitude;
 
             if (curDistance < lastDis)
             {
                 closest = i;
+                lastDis = curDistance;
             }
-
-            lastDis = curDistance;
         }
 
         return closest;

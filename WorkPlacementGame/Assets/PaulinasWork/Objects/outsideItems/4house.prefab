@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4648502819860705587
 Transform:
@@ -100,7 +100,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1096436956773508499
 Transform:
@@ -242,13 +242,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1492702114796227428}
   - component: {fileID: 5291685118711916218}
-  - component: {fileID: 1816224870134530764}
+  - component: {fileID: 2020662425518768235}
   m_Layer: 0
   m_Name: SceneSwitchTrigger
-  m_TagString: Untagged
+  m_TagString: SceneSwitcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1492702114796227428
 Transform:
@@ -277,7 +277,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 5, z: 12}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1816224870134530764
+--- !u!114 &2020662425518768235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,13 +286,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5671593236709552546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44fddc46a9f5c3440981d9854ec333e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a69996363be25f4087423bec247dd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
-  levelNum: 2
+  sceneNumber: 7
   position: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
 --- !u!1 &7054505654358435114
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +307,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4452858943074273170
 Transform:
@@ -453,6 +451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DoorLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993419012706585700, guid: 19c7c161442c6774689eabe4c6bdd724,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19c7c161442c6774689eabe4c6bdd724, type: 3}

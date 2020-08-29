@@ -4863,8 +4863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f3c364b1defa64a9c3bfa9919fb13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: NPC (1)
-  radius: 1.5
+  npcName: QuestNPC (2)
+  radius: 1
   dis: 0
   player: {fileID: 0}
 --- !u!1 &7635938510122302970

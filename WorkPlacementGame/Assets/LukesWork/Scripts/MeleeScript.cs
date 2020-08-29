@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MeleeScript : MonoBehaviour
 {
-    public Transform attackPoint;
+    public Transform attackPoint, slashPoint;
     public float attackRange = 1f, timeLeft = 1, timeReset = 1, knockbackStrength = 5;
     public LayerMask enemyLayers;
     public bool countdown = false, melee, range;
@@ -76,19 +76,17 @@ public class MeleeScript : MonoBehaviour
 
                 //rb.AddForce(dir.normalized * knockbackStrength + new Vector3(1, 10, 1), ForceMode.Impulse);
                 rb.AddExplosionForce(knockbackStrength, transform.position, attackRange, 2.5f, ForceMode.Impulse);
-
-                Debug.Log("AAAAAAAAA");
             }
         }
     }
 
     private void RangedAttack()
     {
-        GameObject chargeShot = Instantiate(projectile, attackPoint.position - new Vector3(0, 1, 0), Quaternion.identity);
+        GameObject chargeShot = Instantiate(projectile, slashPoint.position, Quaternion.identity);
         Rigidbody rb = chargeShot.GetComponent<Rigidbody>();
         rb.AddForce((playerObj.transform.forward * 10), ForceMode.Impulse);
         chargeShot.transform.rotation = playerObj.transform.rotation;
-        Destroy(chargeShot, 5f);
+        Destroy(chargeShot, 0.8f);
         //chargeShot.transform.position = player.moveDirection;
     }
 

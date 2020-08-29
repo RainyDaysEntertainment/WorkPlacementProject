@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public string npcName;
+    //public string npcName;
     public float radius = 2f, dis;
-    QuestGiver questGiver;
+    public QuestGiver questGiver;
     Quest item;
     public Transform player;
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
-        questGiver = GameObject.Find(npcName).GetComponent<QuestGiver>();
+        //questGiver = GameObject.Find(npcName).GetComponent<QuestGiver>();
 
         item = questGiver.quest;
     }
