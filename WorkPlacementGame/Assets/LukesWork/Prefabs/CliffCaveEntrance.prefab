@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4996526863154051088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4996526863154051091}
+  - component: {fileID: 4996526863154051093}
+  - component: {fileID: 4996526863154051090}
+  m_Layer: 0
+  m_Name: SceneSwitchTrigger (1)
+  m_TagString: SceneSwitcher
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &4996526863154051091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996526863154051088}
+  m_LocalRotation: {x: -0.00121814, y: 0.7071057, z: -0.0012180804, w: 0.7071058}
+  m_LocalPosition: {x: -0.00661, y: 0, z: -0.01465}
+  m_LocalScale: {x: 0.0008084193, y: 0.0027122144, z: 0.0012186615}
+  m_Children: []
+  m_Father: {fileID: 5823343716762906286}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4996526863154051093
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996526863154051088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5, z: 12}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4996526863154051090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996526863154051088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a69996363be25f4087423bec247dd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumber: 8
+  position: {x: 1.3, y: -23, z: -1.5}
 --- !u!1 &7389269651734207677
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,7 +76,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5823343716762906286
 Transform:
@@ -26,10 +85,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7389269651734207677}
-  m_LocalRotation: {x: -0.7071068, y: -0.7071068, z: -0.000000116809275, w: -0.00000006705522}
+  m_LocalRotation: {x: -0.7071068, y: -0.70710677, z: 0.00000019861236, w: 0.00000019861234}
   m_LocalPosition: {x: 60, y: 5, z: 75}
   m_LocalScale: {x: 500, y: 500, z: 500}
   m_Children:
+  - {fileID: 4996526863154051091}
   - {fileID: 2491158735022310419}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 3979008494527464708, guid: f25c940c6b7f62145bac3bda0ab2220f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3979008494527464708, guid: f25c940c6b7f62145bac3bda0ab2220f,
         type: 3}
@@ -181,6 +241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FogPlane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979008494527464712, guid: f25c940c6b7f62145bac3bda0ab2220f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f25c940c6b7f62145bac3bda0ab2220f, type: 3}

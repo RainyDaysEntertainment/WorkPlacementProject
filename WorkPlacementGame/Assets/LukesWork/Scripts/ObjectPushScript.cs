@@ -11,11 +11,6 @@ public class ObjectPushScript : MonoBehaviour
     Collider col;
     ParticleSystem smoke;
 
-    private void Start()
-    {
-        
-    }
-
     void Update()
     {
         vec = transform.rotation.eulerAngles;
@@ -23,7 +18,7 @@ public class ObjectPushScript : MonoBehaviour
         vec.y = Mathf.Round(vec.y / 90) * 90;
         vec.z = Mathf.Round(vec.z / 90) * 90;
 
-        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f);
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f);
         col = hit.collider;
 
         if (col != null && col.CompareTag("Grab"))
@@ -32,21 +27,21 @@ public class ObjectPushScript : MonoBehaviour
                 obj = GetObject();
                 pos = GetPosition();
 
-                cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 3f);
+                cantMove = Physics.Raycast(GetObject().transform.position, GetPosition(), out hit2, 1f);
 
                 move = false;
 
-                smoke = obj.GetComponentInChildren<ParticleSystem>();
+                //smoke = obj.GetComponentInChildren<ParticleSystem>();
 
-                if (smoke.isStopped)
-                {
-                    smoke.Play();
-                }
+                //if (smoke.isStopped)
+                //{
+                //    smoke.Play();
+                //}
             }
 
         if (obj != null && cantMove == false)
             obj.transform.position = Vector3.Lerp(
-                obj.transform.position, pos, 2 * Time.deltaTime);
+                obj.transform.position, pos, 5 * Time.deltaTime);
 
         Invoke("StopMoving", 3f);
     }
@@ -66,7 +61,7 @@ public class ObjectPushScript : MonoBehaviour
     {
         var dir = Quaternion.Euler(vec) * Vector3.forward;
 
-        return obj.transform.position + (dir * 2);
+        return obj.transform.position + (dir * 5);
     }
 
     void StopMoving()

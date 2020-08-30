@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 415124688}
   m_LocalRotation: {x: -0.000000029802326, y: -0.000000089406974, z: -0.0033037665,
     w: 0.9999946}
-  m_LocalPosition: {x: -0.0017395196, y: -0.00013867977, z: -0.004555955}
-  m_LocalScale: {x: 0.000636576, y: 0.0022244349, z: 0.0008298226}
+  m_LocalPosition: {x: -0.00075, y: -0.00013867977, z: -0.004555955}
+  m_LocalScale: {x: 0.0014890148, y: 0.0022244349, z: 0.0008298226}
   m_Children: []
   m_Father: {fileID: 1491957275483591089}
   m_RootOrder: 3
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNumber: 3
-  position: {x: 0, y: 0, z: 0}
+  position: {x: 0, y: 2, z: -9}
 --- !u!1 &1005466803
 GameObject:
   m_ObjectHideFlags: 0

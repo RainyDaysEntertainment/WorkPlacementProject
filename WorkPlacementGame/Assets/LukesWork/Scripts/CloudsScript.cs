@@ -13,13 +13,13 @@ public class CloudsScript : MonoBehaviour
     float offset;
 
     public int layer = 1;
-    Camera cam;
+    public Camera cam;
     Matrix4x4 matrix;
 
     void Start()
     {
         player = GameObject.Find("Player");
-        cam = GameObject.Find("Camera Parent").transform.GetChild(0).GetComponent<Camera>();
+        //cam = GameObject.Find("Camera Parent").transform.GetChild(0).GetComponent<Camera>();
     }
 
     void Update()

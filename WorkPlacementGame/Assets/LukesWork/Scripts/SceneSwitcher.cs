@@ -11,22 +11,21 @@ public class SceneSwitcher : MonoBehaviour
     public Vector3 position;
     public GameObject clouds, filter, cam;
 
-    public void Update()
+    public float radius = 2f, dis;
+
+    private void Start()
     {
-        //if (Input.GetKeyDown(KeyCode.J))
-        //{
-        //    LoadScene();
-        //}
+        InvokeRepeating("Check", 0, 1.1f);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("SceneSwitcher"))
-        {
-            StartCoroutine(LoadSceneIEnum(other.gameObject.GetComponent<SceneNum>().sceneNumber));
-            position = other.gameObject.GetComponent<SceneNum>().position;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("SceneSwitcher"))
+    //    {
+    //        StartCoroutine(LoadSceneIEnum(other.gameObject.GetComponent<SceneNum>().sceneNumber));
+    //        position = other.gameObject.GetComponent<SceneNum>().position;
+    //    }
+    //}
 
     IEnumerator LoadSceneIEnum(int levelNumber)
     {
@@ -53,11 +52,27 @@ public class SceneSwitcher : MonoBehaviour
             {
                 SceneManager.UnloadSceneAsync(scene);
             }
-
-            
         }
 
         SceneManager.LoadScene(levelNumber, LoadSceneMode.Additive);
         transform.position = position;
+
+        transition.ResetTrigger("Start");
+        transition.ResetTrigger("End");
+
+    }
+
+    void Check()
+    {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("SceneSwitcher"))
+        {
+            dis = Vector3.Distance(g.transform.position, gameObject.transform.position);
+
+            if (dis <= radius)
+            {
+                StartCoroutine(LoadSceneIEnum(g.gameObject.GetComponent<SceneNum>().sceneNumber));
+                position = g.gameObject.GetComponent<SceneNum>().position;
+            }
+        }
     }
 }
