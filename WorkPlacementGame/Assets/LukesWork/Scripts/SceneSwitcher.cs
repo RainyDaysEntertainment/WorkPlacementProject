@@ -9,7 +9,7 @@ public class SceneSwitcher : MonoBehaviour
     public Animator transition;
     private float transitionTime = 1f;
     public Vector3 position;
-    public GameObject clouds, filter, cam;
+    public GameObject cam;
 
     public float radius = 2f, dis;
 
@@ -18,15 +18,6 @@ public class SceneSwitcher : MonoBehaviour
         InvokeRepeating("Check", 0, 1.1f);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("SceneSwitcher"))
-    //    {
-    //        StartCoroutine(LoadSceneIEnum(other.gameObject.GetComponent<SceneNum>().sceneNumber));
-    //        position = other.gameObject.GetComponent<SceneNum>().position;
-    //    }
-    //}
-
     IEnumerator LoadSceneIEnum(int levelNumber)
     {
         transition.SetTrigger("Start");
@@ -34,14 +25,10 @@ public class SceneSwitcher : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         cam.SetActive(false);
-        //clouds.SetActive(false);
-        //filter.SetActive(false);
 
         if (levelNumber == 2)
         {
             cam.SetActive(true);
-            //clouds.SetActive(true);
-            //filter.SetActive(true);
         }
 
         for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -55,11 +42,11 @@ public class SceneSwitcher : MonoBehaviour
         }
 
         SceneManager.LoadScene(levelNumber, LoadSceneMode.Additive);
+
         transform.position = position;
 
         transition.ResetTrigger("Start");
         transition.ResetTrigger("End");
-
     }
 
     void Check()

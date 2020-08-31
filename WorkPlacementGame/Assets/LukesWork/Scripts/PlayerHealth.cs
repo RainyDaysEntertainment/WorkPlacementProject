@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector]
     public bool canIncrease = true;
 
-    GameObject player, healthSlider;
+    GameObject player;
 
     public ScreenShake screenShake;
 
@@ -24,7 +24,6 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        healthSlider = GameObject.Find("HealthSlider");
 
         hValue = player.GetComponent<PlayerVariables>().health;
         screenShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
@@ -32,23 +31,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        //healthSlider.GetComponent<Slider>().value = value;
-
-        //if (value < healthSlider.GetComponent<Slider>().maxValue && canIncrease && Time.timeScale != 0)
-        //{
-        //    value += increaseValue;
-        //}
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Value += 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Value -= 1;
-        }
-
         if (hValue >= 3)
         {
             hValue = 3;
@@ -58,6 +40,8 @@ public class PlayerHealth : MonoBehaviour
         {
             hValue = 0;
         }
+
+        Value = hValue;
     }
 
     public float Value
@@ -69,7 +53,6 @@ public class PlayerHealth : MonoBehaviour
                 return;
 
             hValue = value;
-
 
             switch (hValue)
             {
@@ -100,9 +83,9 @@ public class PlayerHealth : MonoBehaviour
                     healthIcon2.GetComponent<Image>().sprite = fullHealth;
                     healthIcon3.GetComponent<Image>().sprite = emptyHealth;
 
-                    LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
+                    LeanTween.scale(healthIcon1, new Vector3(1, 1, 1), 0);
 
-                    //healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                    LeanTween.scale(healthIcon3, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setEase(shrinkEaseType);
 
                     LeanTween.scale(healthIcon2, new Vector3(1.3f, 1.3f, 1.3f), 0.4f).setEase(expandEaseType);
                     LeanTween.scale(healthIcon2, new Vector3(1, 1, 1), 0.2f).setDelay(0.4f).setEase(shrinkEaseType);
@@ -113,8 +96,8 @@ public class PlayerHealth : MonoBehaviour
                     healthIcon2.GetComponent<Image>().sprite = fullHealth;
                     healthIcon3.GetComponent<Image>().sprite = fullHealth;
 
-                    //healthIcon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-                    //healthIcon2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                    LeanTween.scale(healthIcon1, new Vector3(1, 1, 1), 0);
+                    LeanTween.scale(healthIcon2, new Vector3(1, 1, 1), 0);
 
                     LeanTween.scale(healthIcon3, new Vector3(1.3f, 1.3f, 1.3f), 0.4f).setEase(expandEaseType);
                     LeanTween.scale(healthIcon3, new Vector3(1, 1, 1), 0.2f).setDelay(0.4f);

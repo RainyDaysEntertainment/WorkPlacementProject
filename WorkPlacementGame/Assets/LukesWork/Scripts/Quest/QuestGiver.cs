@@ -24,16 +24,6 @@ public class QuestGiver : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            PopupQuestMessage();
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            quest.isComplete = true;
-        }
-
         if (quest.isComplete == false)
         {
             quest.QuestBack = incompleteImage;

@@ -14,7 +14,7 @@ public class QuestStart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void OnEnable()
     {
         canvas = GameObject.Find("UICanvas");
-        i = ((canvas.transform.childCount - 5) * 80) + 20;
+        i = ((canvas.transform.childCount - 5) * 80) + 95;
 
         gameObject.transform.position = new Vector3(Screen.width * 0.82f, Screen.height + 100, 0);
         LeanTween.moveX(gameObject, (Screen.width * 1.105f), 0.5f).setEase(LeanTweenType.easeOutSine).setDelay(4);

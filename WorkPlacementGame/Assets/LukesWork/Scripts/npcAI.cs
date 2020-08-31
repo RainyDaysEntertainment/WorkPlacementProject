@@ -43,6 +43,7 @@ public class npcAI : MonoBehaviour
         if (moveTime > 0)
         {
             anim.SetBool("isWalking", true);
+            anim.speed = Random.Range(0.4f, 1.6f);
 
             moveTo = Vector3.LerpUnclamped(transform.position, pathPoints[randomPoint].position, lerpSpeed * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, moveTo, speed * Time.deltaTime);
